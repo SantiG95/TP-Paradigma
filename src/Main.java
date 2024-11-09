@@ -1,13 +1,11 @@
-import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Main {
     public static void main(String[] args) {
 
-        CanchitaReunion reunion1 = new CanchitaReunion(new GregorianCalendar(2024,10,6).getTime(),"LaMadrid", "muy pobre");
-        CanchitaReunion reunion2 = new CanchitaReunion(new GregorianCalendar(2022,11,25).getTime(),"Indepe", "lukas");
-        CanchitaReunion reunion3 = new CanchitaReunion(new GregorianCalendar(2020,11,25).getTime(),"Indepe", "lukas");
+        AlquilerCanchita reunion1 = new AlquilerCanchaCasual(new GregorianCalendar(2024,10,6).getTime(),"LaMadrid");
+        AlquilerCanchita reunion2 = new AlquilerCanchaCasual(new GregorianCalendar(2022,11,25).getTime(),"Indepe");
+        AlquilerCanchita reunion3 = new AlquilerCanchaCasual(new GregorianCalendar(2020,11,25).getTime(),"Indepe");
 
         //System.out.println(new GregorianCalendar(2024,11,25).getTime());
 
