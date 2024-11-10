@@ -1,7 +1,8 @@
-public class Asistentes {
+public class Invitados {
     
     private String nombre;
     private String apellido;
+    private boolean asistencia;
     //private String edad;
     //TODO puede que se pueda hacer herencia y que tengamos a quien hacer el alquiler y los que asisten simplemente
 
@@ -14,9 +15,12 @@ public class Asistentes {
         return nombre;
     }
 
-    public Asistentes(String nombre, String apellido){
+    public boolean asistira() {return asistencia; }
+
+    public Invitados(String nombre, String apellido, boolean asistencia){
         this.nombre = nombre;
         this.apellido = apellido;
+        this.asistencia = asistencia;
     }
 
     public void setNombre(String nombre) {

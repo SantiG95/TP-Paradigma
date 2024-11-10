@@ -22,13 +22,13 @@ public class ListaEventos {
         Eventos.remove(evento);
     }
 
-    public void mostrar(){
+    public void mostrareventos(){
         for (AlquilerCanchita evento : Eventos) {
-            System.out.println(evento.getFecha());
+            System.out.println(evento.getDescripcion());
         }
     }
 
-    public void mostrar(ArrayList<AlquilerCanchita> listaEventos){
+    private void mostrar(ArrayList<AlquilerCanchita> listaEventos){
         for (AlquilerCanchita evento : listaEventos) {
             System.out.println(evento.getFecha());
         }
@@ -39,23 +39,21 @@ public class ListaEventos {
         for (AlquilerCanchita eventoEnLista : Eventos){
             if(fecha.after(eventoEnLista.getFecha())){
                 listaEventosPasados.add(eventoEnLista);
-                System.out.println("Entro");
+
             }
         }
         mostrar(listaEventosPasados);
     }
 
     public void mostrarEventosFuturos(Date fecha){
-        ArrayList<AlquilerCanchita> listaEventosPasados = new ArrayList<>();
+        ArrayList<AlquilerCanchita> listaEventosFuturos = new ArrayList<>();
         for (AlquilerCanchita eventoEnLista : Eventos){
             if(fecha.before(eventoEnLista.getFecha())){
-                listaEventosPasados.add(eventoEnLista);
-                System.out.println("Entro");
+                listaEventosFuturos.add(eventoEnLista);
+
             }
         }
-        mostrar(listaEventosPasados);
+        mostrar(listaEventosFuturos);
     }
-
-
 
 }

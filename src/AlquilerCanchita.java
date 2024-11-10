@@ -5,8 +5,8 @@ abstract class AlquilerCanchita {
     protected Date fecha;
     protected String ubicacion;
     protected String descripcion;
-    protected ArrayList<Asistentes> listaAsistentes = new ArrayList<>();
-    protected int maximoAsistentes;
+    protected ArrayList<Invitados> listaAsistentes = new ArrayList<>();
+    protected int tamañodecancha;
     //TODO falta hacer la parte de que recursos maneja. Podria ser la pelota
 
     public Date getFecha() {
@@ -21,6 +21,10 @@ abstract class AlquilerCanchita {
         return descripcion;
     }
 
+    public int getTamañodecancha() {return tamañodecancha; }
+
+    public void setTamañodecancha(int tamañodecancha) {this.tamañodecancha = tamañodecancha; }
+
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
@@ -33,26 +37,22 @@ abstract class AlquilerCanchita {
         this.descripcion = descripcion;
     }
 
-    public void agregarAsistente(Asistentes asistente){
-        listaAsistentes.add(asistente);
+    public void agregarAsistente(Invitados asistente){
+        if(asistente.asistira()) {listaAsistentes.add(asistente); }
     }
 
-    public void eliminarAsistente(Asistentes asistente){
+    public void eliminarAsistente(Invitados asistente){
         listaAsistentes.remove(asistente);
     }
 
     public void mostrarAsistentes(){
-        for (Asistentes asistentes : listaAsistentes) {
+        for (Invitados asistentes : listaAsistentes) {
             System.out.println(asistentes.getNombre() +" "+ asistentes.getApellido());
         }
     }
 
-    public boolean getAsistentes (Asistentes asistente){
+    public boolean estapresente (Invitados asistente){
         return listaAsistentes.contains(asistente);
-    }
-
-    public int getMaximoAsistentes(){
-        return maximoAsistentes;
     }
 
 }

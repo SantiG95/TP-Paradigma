@@ -3,37 +3,40 @@ import java.util.GregorianCalendar;
 public class Main {
     public static void main(String[] args) {
 
-        AlquilerCanchita reunion1 = new AlquilerCanchaCasual(new GregorianCalendar(2024,10,6).getTime(),"LaMadrid");
-        AlquilerCanchita reunion2 = new AlquilerCanchaCasual(new GregorianCalendar(2022,11,25).getTime(),"Indepe");
-        AlquilerCanchita reunion3 = new AlquilerCanchaCasual(new GregorianCalendar(2020,11,25).getTime(),"Indepe");
+        AlquilerCanchita reunion1 = new AlquilerCanchaCasual(new GregorianCalendar(2024,10,6).getTime(),"LaMadrid",5,"canchita de fulbo 5");
+        AlquilerCanchita reunion2 = new AlquilerCanchaCasual(new GregorianCalendar(2022,11,25).getTime(),"Indepe",5, "canchita de fulbo 5");
+        AlquilerCanchita reunion3 = new AlquilerCanchaCasual(new GregorianCalendar(2020,11,25).getTime(),"Indepe",11, "canchita de fulbo 11");
 
         //System.out.println(new GregorianCalendar(2024,11,25).getTime());
+
+        reunion1.setDescripcion("la fiesta sera increible");
 
         ListaEventos listaeve = new ListaEventos();
         listaeve.agregarEvento(reunion1);
         listaeve.agregarEvento(reunion2);
         listaeve.agregarEvento(reunion3);
-        //listaeve.mostrar();
+        listaeve.mostrareventos();
+
 
         listaeve.mostrarEventosPasados(new GregorianCalendar(2021,10,2).getTime());
         listaeve.mostrarEventosFuturos(new GregorianCalendar(2021,10,2).getTime());
-        /*System.out.println(" ");
+        System.out.println(" ");
 
-        Asistentes asistente = new Asistentes("Adan", "Rodriguez");
-        Asistentes asistente2 = new Asistentes("Lionel","Messi");
-        Asistentes asistente3 = new Asistentes("Safari","Lopez");
-        Asistentes asistente4 = new Asistentes("Juan","Shul");
-        Asistentes asistente5 = new Asistentes("Federico","Lupica");
+        Invitados invitado = new Invitados("Adan", "Rodriguez", false);
+        Invitados invitado2 = new Invitados("Lionel","Messi", true);
+        Invitados invitado3 = new Invitados("Safari","Lopez", true);
+        Invitados invitado4 = new Invitados("Juan","Shul",true);
+        Invitados invitado5 = new Invitados("Federico","Lupica",true);
 
-        asistente5.setNombre("Francisco");
+        invitado5.setNombre("Francisco");
 
-        reunion1.agregar(asistente);
-        reunion1.agregar(asistente2);
-        reunion1.agregar(asistente5);
-        //reunion1.mostrar();
+        reunion1.agregarAsistente(invitado);
+        reunion1.agregarAsistente(invitado2);
+        reunion1.agregarAsistente(invitado5);
+        reunion1.mostrarAsistentes();
 
-        System.out.println(reunion1.asistencia(asistente));
-*/
+        System.out.println(reunion1.estapresente(invitado));
+        
 
     }
 }
