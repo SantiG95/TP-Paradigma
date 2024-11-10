@@ -6,6 +6,6 @@ public class AlquilerCanchaCasual extends AlquilerCanchita{
         this.fecha = fecha;
         this.ubicacion = ubicacion;
         this.descripcion = descripcion;
-        this.tamañodecancha = tamañodecancha;
+        this.tamañoCancha = tamañodecancha;
     }
 }

@@ -20,13 +20,13 @@ public class Main {
 
         listaeve.mostrarEventosPasados(new GregorianCalendar(2021,10,2).getTime());
         listaeve.mostrarEventosFuturos(new GregorianCalendar(2021,10,2).getTime());
-        System.out.println(" ");
+        //System.out.println(" ");
 
-        Invitados invitado = new Invitados("Adan", "Rodriguez", false);
-        Invitados invitado2 = new Invitados("Lionel","Messi", true);
-        Invitados invitado3 = new Invitados("Safari","Lopez", true);
-        Invitados invitado4 = new Invitados("Juan","Shul",true);
-        Invitados invitado5 = new Invitados("Federico","Lupica",true);
+        Invitado invitado = new Invitado("Adan", "Rodriguez", false);
+        Invitado invitado2 = new Invitado("Lionel","Messi", true);
+        Invitado invitado3 = new Invitado("Safari","Lopez", true);
+        Invitado invitado4 = new Invitado("Juan","Shul",true);
+        Invitado invitado5 = new Invitado("Federico","Lupica",true);
 
         invitado5.setNombre("Francisco");
 
@@ -35,7 +35,7 @@ public class Main {
         reunion1.agregarAsistente(invitado5);
         reunion1.mostrarAsistentes();
 
-        System.out.println(reunion1.estapresente(invitado));
+        System.out.println(reunion1.estaPresente(invitado));
         
 
     }

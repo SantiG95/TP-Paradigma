@@ -5,9 +5,11 @@ abstract class AlquilerCanchita {
     protected Date fecha;
     protected String ubicacion;
     protected String descripcion;
-    protected ArrayList<Invitados> listaAsistentes = new ArrayList<>();
-    protected int tamañodecancha;
-    //TODO falta hacer la parte de que recursos maneja. Podria ser la pelota
+    protected ArrayList<Invitado> listaAsistentes = new ArrayList<>();
+    protected int tamañoCancha;
+    //TODO falta hacer la parte de que recursos maneja. Podria ser la pelota, ponchos de color(nombre temporal)
+    //TODO diferencia de alquileres por el tiempo
+    //TODO canchas de difentes suelos
 
     public Date getFecha() {
         return fecha;
@@ -21,9 +23,9 @@ abstract class AlquilerCanchita {
         return descripcion;
     }
 
-    public int getTamañodecancha() {return tamañodecancha; }
+    public int getTamañodecancha() {return tamañoCancha; }
 
-    public void setTamañodecancha(int tamañodecancha) {this.tamañodecancha = tamañodecancha; }
+    public void setTamañodecancha(int tamañodecancha) {this.tamañoCancha = tamañodecancha; }
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
@@ -37,21 +39,21 @@ abstract class AlquilerCanchita {
         this.descripcion = descripcion;
     }
 
-    public void agregarAsistente(Invitados asistente){
+    public void agregarAsistente(Invitado asistente){
         if(asistente.asistira()) {listaAsistentes.add(asistente); }
     }
 
-    public void eliminarAsistente(Invitados asistente){
+    public void eliminarAsistente(Invitado asistente){
         listaAsistentes.remove(asistente);
     }
 
     public void mostrarAsistentes(){
-        for (Invitados asistentes : listaAsistentes) {
+        for (Invitado asistentes : listaAsistentes) {
             System.out.println(asistentes.getNombre() +" "+ asistentes.getApellido());
         }
     }
 
-    public boolean estapresente (Invitados asistente){
+    public boolean estaPresente (Invitado asistente){
         return listaAsistentes.contains(asistente);
     }
 
