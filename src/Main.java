@@ -1,22 +1,30 @@
+import Alquileres.AlquilerCancha;
+import Alquileres.AlquilerCanchaCasual;
+import Alquileres.AlquilerCanchaFiesta;
+import Personas.Invitado;
+import Personas.Organizador;
+
 import java.util.GregorianCalendar;
 
 public class Main {
     public static void main(String[] args) {
 
-        Inquilino inquilino1 = new Inquilino("Nicolas", "Perez");
+        Organizador inquilino1 = new Organizador("Nicolas", "Perez");
 
-        AlquilerCanchita reunion1 = new AlquilerCanchaCasual(new GregorianCalendar(2024,10,6).getTime(),"LaMadrid",5,"canchita de fulbo 5", inquilino1);
-        //AlquilerCanchita reunion2 = new AlquilerCanchaCasual(new GregorianCalendar(2022,11,25).getTime(),"Indepe",5, "canchita de fulbo 5", inquilino1);
-        //AlquilerCanchita reunion3 = new AlquilerCanchaCasual(new GregorianCalendar(2020,11,25).getTime(),"Indepe",11, "canchita de fulbo 11", inquilino1);
+        AlquilerCancha reunion1 = new AlquilerCanchaCasual(new GregorianCalendar(2024,10,6).getTime(),"LaMadrid",5,"canchita de fulbo 5", inquilino1);
+        AlquilerCancha reunion2 = new AlquilerCanchaCasual(new GregorianCalendar(2022,11,25).getTime(),"Indepe",5, "canchita de fulbo 5", inquilino1);
+        AlquilerCancha reunion3 = new AlquilerCanchaCasual(new GregorianCalendar(2020,11,25).getTime(),"Indepe",11, "canchita de fulbo 11", inquilino1);
+
+        inquilino1.asignarAlquiler(reunion1);
 
         //System.out.println(new GregorianCalendar(2024,11,25).getTime());
 
-        reunion1.setDescripcion("la fiesta sera increible");
+        //reunion1.setDescripcion("la fiesta sera increible");
 
         ListaEventos listaeve = new ListaEventos();
         listaeve.agregarEvento(reunion1);
-        //listaeve.agregarEvento(reunion2);
-        //listaeve.agregarEvento(reunion3);
+        listaeve.agregarEvento(reunion2);
+        listaeve.agregarEvento(reunion3);
         listaeve.mostrareventos();
 
 
@@ -32,16 +40,16 @@ public class Main {
 
         invitado5.setNombre("Francisco");
 
-        invitado.esInvitadoAAlquiler(reunion1);
-        invitado2.esInvitadoAAlquiler(reunion1);
-        invitado5.esInvitadoAAlquiler(reunion1);
-        System.out.println("Los invitados confirmados son: ");
+        //invitado.esInvitadoAAlquiler(reunion1);
+        //invitado2.esInvitadoAAlquiler(reunion1);
+        //invitado5.esInvitadoAAlquiler(reunion1);
+        //System.out.println("Los invitados confirmados son: ");
 
-        invitado.confirmarAsistencia();
+        //invitado.confirmarAsistencia();
 
-        reunion1.mostrarAsistentes();
+        //reunion1.mostrarAsistentes();
 
-        invitado3.confirmarAsistencia();
+        //invitado3.confirmarAsistencia();
 
         //System.out.println(reunion1.estaPresente(invitado));
 

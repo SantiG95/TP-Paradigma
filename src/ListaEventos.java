@@ -1,15 +1,17 @@
+import Alquileres.AlquilerCancha;
+
 import java.util.ArrayList;
 import java.util.Date;
 
 public class ListaEventos {
-    ArrayList<AlquilerCanchita> Eventos;
+    ArrayList<AlquilerCancha> Eventos;
 
     public ListaEventos(){
         Eventos = new ArrayList<>();
     }
 
-    public void agregarEvento(AlquilerCanchita eventoParaAgregar){
-        for (AlquilerCanchita eventoEnLista : Eventos){
+    public void agregarEvento(AlquilerCancha eventoParaAgregar){
+        for (AlquilerCancha eventoEnLista : Eventos){
             if(eventoParaAgregar.getFecha().before(eventoEnLista.getFecha())){
                 Eventos.add(Eventos.indexOf(eventoEnLista), eventoParaAgregar);
                 return;
@@ -18,25 +20,25 @@ public class ListaEventos {
         Eventos.add(eventoParaAgregar);
     }
 
-    public void eliminarevento(AlquilerCanchita evento){
+    public void eliminarevento(AlquilerCancha evento){
         Eventos.remove(evento);
     }
 
     public void mostrareventos(){
-        for (AlquilerCanchita evento : Eventos) {
+        for (AlquilerCancha evento : Eventos) {
             System.out.println(evento.getDescripcion());
         }
     }
 
-    private void mostrar(ArrayList<AlquilerCanchita> listaEventos){
-        for (AlquilerCanchita evento : listaEventos) {
+    private void mostrar(ArrayList<AlquilerCancha> listaEventos){
+        for (AlquilerCancha evento : listaEventos) {
             System.out.println(evento.getFecha());
         }
     }
 
     public void mostrarEventosPasados(Date fecha){
-        ArrayList<AlquilerCanchita> listaEventosPasados = new ArrayList<>();
-        for (AlquilerCanchita eventoEnLista : Eventos){
+        ArrayList<AlquilerCancha> listaEventosPasados = new ArrayList<>();
+        for (AlquilerCancha eventoEnLista : Eventos){
             if(fecha.after(eventoEnLista.getFecha())){
                 listaEventosPasados.add(eventoEnLista);
 
@@ -46,8 +48,8 @@ public class ListaEventos {
     }
 
     public void mostrarEventosFuturos(Date fecha){
-        ArrayList<AlquilerCanchita> listaEventosFuturos = new ArrayList<>();
-        for (AlquilerCanchita eventoEnLista : Eventos){
+        ArrayList<AlquilerCancha> listaEventosFuturos = new ArrayList<>();
+        for (AlquilerCancha eventoEnLista : Eventos){
             if(fecha.before(eventoEnLista.getFecha())){
                 listaEventosFuturos.add(eventoEnLista);
 
