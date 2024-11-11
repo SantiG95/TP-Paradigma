@@ -1,6 +1,7 @@
 abstract class Usuario {
     protected String nombre;
     protected String apellido;
+    protected AlquilerCanchita alquilerCanchita;
 
     public String getApellido() {
         return apellido;
@@ -16,5 +17,13 @@ abstract class Usuario {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public AlquilerCanchita getAlquilerCanchita() {
+        return alquilerCanchita;
+    }
+
+    public void setAlquilerCanchita(AlquilerCanchita alquilerCanchita) {
+        this.alquilerCanchita = alquilerCanchita;
     }
 }

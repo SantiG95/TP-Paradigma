@@ -5,7 +5,7 @@ abstract class AlquilerCanchita {
     protected Date fecha;
     protected String ubicacion;
     protected String descripcion;
-    protected ArrayList<Invitado> listaAsistentes = new ArrayList<>();
+    public ArrayList<Invitado> listaAsistentes = new ArrayList<>();
     protected int tamañoCancha;
     //TODO falta hacer la parte de que recursos maneja. Podria ser la pelota, ponchos de color(nombre temporal)
     //TODO diferencia de alquileres por el tiempo
@@ -40,7 +40,7 @@ abstract class AlquilerCanchita {
     }
 
     public void agregarAsistente(Invitado asistente){
-        if(asistente.asistira()) {listaAsistentes.add(asistente); }
+        listaAsistentes.add(asistente);
     }
 
     public void eliminarAsistente(Invitado asistente){
