@@ -69,8 +69,10 @@ public class ListaEventos {
     }
 
     public ArrayList<AlquilerCancha> buscarEventosEnFecha(Date fecha){
+        ArrayList<AlquilerCancha> listaEventos = Eventos.get(fecha);
+        if(listaEventos != null) return listaEventos;
+        Eventos.put(fecha, new ArrayList<AlquilerCancha>());
         return Eventos.get(fecha);
-
     }
 
 }

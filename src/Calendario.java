@@ -21,9 +21,9 @@ public class Calendario {
     }
 
     public ArrayList<AlquilerCancha> obtenerEventosDeHoy() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String fechaHoy = sdf.format(new Date());
-        return obtenerEventos(new Date(fechaHoy));
+        Calendar cal = Calendar.getInstance();
+        Date fechaHoy = cal.getTime();
+        return obtenerEventos(fechaHoy);
     }
 
     public void eliminarEvento(AlquilerCancha evento) {
