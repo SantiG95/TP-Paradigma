@@ -1,6 +1,8 @@
 package Personas;
+import java.io.Serializable;
 
-abstract class Persona {
+abstract class Persona implements Serializable {
+    protected static final long serialVersionUID = 1L;
     protected String nombre;
     protected String apellido;
 

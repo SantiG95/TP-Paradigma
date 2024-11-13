@@ -3,13 +3,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ArrayList;
 import java.util.Date;
+import java.io.Serializable;
 
-public class ListaEventos {
-    //ArrayList<AlquilerCancha> Eventos;
+public class ListaEventos implements Serializable {
     Map<Date, ArrayList<AlquilerCancha>> Eventos;
+    private static final long serialVersionUID = 1L;
+
     public ListaEventos(){
         //Eventos = new ArrayList<>();
         Eventos = new HashMap<>();
+    }
+
+    public void setListaEventos(ListaEventos listaEventos){
+        this.Eventos = listaEventos.Eventos;
     }
 
     public void agregarEvento(AlquilerCancha eventoParaAgregar, Date fecha){
@@ -21,13 +27,13 @@ public class ListaEventos {
         Lista.add(eventoParaAgregar);
     }
 
-    public void eliminarevento(AlquilerCancha evento){
+    public void eliminarEvento(AlquilerCancha evento){
         ArrayList<AlquilerCancha> Lista = Eventos.get(evento.getFecha());
         if(Lista == null) return;
         Lista.remove(evento);
     }
 
-    public void mostrareventos(){
+    public void mostrarEventos(){
         for (Map.Entry<Date, ArrayList<AlquilerCancha>> evento : Eventos.entrySet()) {
             System.out.println(evento.getKey());
             for(AlquilerCancha alquilerCancha : evento.getValue()){
