@@ -22,10 +22,10 @@ public class Main {
         //reunion1.setDescripcion("la fiesta sera increible");
 
         ListaEventos listaeve = new ListaEventos();
-        listaeve.agregarEvento(reunion1);
-        listaeve.agregarEvento(reunion2);
-        listaeve.agregarEvento(reunion3);
-        listaeve.mostrareventos();
+        //listaeve.agregarEvento(reunion1);
+        //listaeve.agregarEvento(reunion2);
+        //listaeve.agregarEvento(reunion3);
+        //listaeve.mostrareventos();
 
 
         //listaeve.mostrarEventosPasados(new GregorianCalendar(2021,10,2).getTime());

@@ -1,32 +1,38 @@
 import Alquileres.AlquilerCancha;
-
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class ListaEventos {
-    ArrayList<AlquilerCancha> Eventos;
-
+    //ArrayList<AlquilerCancha> Eventos;
+    Map<Date, ArrayList<AlquilerCancha>> Eventos;
     public ListaEventos(){
-        Eventos = new ArrayList<>();
+        //Eventos = new ArrayList<>();
+        Eventos = new HashMap<>();
     }
 
-    public void agregarEvento(AlquilerCancha eventoParaAgregar){
-        for (AlquilerCancha eventoEnLista : Eventos){
-            if(eventoParaAgregar.getFecha().before(eventoEnLista.getFecha())){
-                Eventos.add(Eventos.indexOf(eventoEnLista), eventoParaAgregar);
-                return;
-            }
+    public void agregarEvento(AlquilerCancha eventoParaAgregar, Date fecha){
+        ArrayList<AlquilerCancha> Lista = Eventos.get(fecha);
+        if(Lista == null){
+            Eventos.put(fecha, new ArrayList<AlquilerCancha>());
+            Lista = Eventos.get(fecha);
         }
-        Eventos.add(eventoParaAgregar);
+        Lista.add(eventoParaAgregar);
     }
 
     public void eliminarevento(AlquilerCancha evento){
-        Eventos.remove(evento);
+        ArrayList<AlquilerCancha> Lista = Eventos.get(evento.getFecha());
+        if(Lista == null) return;
+        Lista.remove(evento);
     }
 
     public void mostrareventos(){
-        for (AlquilerCancha evento : Eventos) {
-            System.out.println(evento.getDescripcion());
+        for (Map.Entry<Date, ArrayList<AlquilerCancha>> evento : Eventos.entrySet()) {
+            System.out.println(evento.getKey());
+            for(AlquilerCancha alquilerCancha : evento.getValue()){
+                System.out.println(alquilerCancha.getDescripcion());
+            }
         }
     }
 
@@ -38,9 +44,11 @@ public class ListaEventos {
 
     public void mostrarEventosPasados(Date fecha){
         ArrayList<AlquilerCancha> listaEventosPasados = new ArrayList<>();
-        for (AlquilerCancha eventoEnLista : Eventos){
-            if(fecha.after(eventoEnLista.getFecha())){
-                listaEventosPasados.add(eventoEnLista);
+        for (Map.Entry<Date, ArrayList<AlquilerCancha>> eventoenlista : Eventos.entrySet()){
+            if(fecha.after(eventoenlista.getKey())){
+                for(AlquilerCancha alquilerCancha : eventoenlista.getValue()){
+                    listaEventosPasados.add(alquilerCancha);
+                }
 
             }
         }
@@ -49,13 +57,20 @@ public class ListaEventos {
 
     public void mostrarEventosFuturos(Date fecha){
         ArrayList<AlquilerCancha> listaEventosFuturos = new ArrayList<>();
-        for (AlquilerCancha eventoEnLista : Eventos){
-            if(fecha.before(eventoEnLista.getFecha())){
-                listaEventosFuturos.add(eventoEnLista);
+        for (Map.Entry<Date, ArrayList<AlquilerCancha>> eventoenlista : Eventos.entrySet()){
+            if(fecha.before(eventoenlista.getKey())){
+                for(AlquilerCancha alquilerCancha : eventoenlista.getValue()){
+                    listaEventosFuturos.add(alquilerCancha);
+                }
 
             }
         }
         mostrar(listaEventosFuturos);
+    }
+
+    public ArrayList<AlquilerCancha> buscarEventosEnFecha(Date fecha){
+        return Eventos.get(fecha);
+
     }
 
 }

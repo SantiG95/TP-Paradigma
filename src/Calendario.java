@@ -11,25 +11,22 @@ public class Calendario {
     }
 
     public void agregarEvento(AlquilerCancha alquilerCancha) {
-        ArrayList<AlquilerCancha> eventosDelDia = eventos.buscarEventosEnFecha(AlquilerCancha.getFecha());
+        ArrayList<AlquilerCancha> eventosDelDia = eventos.buscarEventosEnFecha(alquilerCancha.getFecha());
         eventosDelDia.add(alquilerCancha);
         //eventos.put(alquilerCancha.getFecha(), eventosDelDia);
     }
 
-    public ArrayList<AlquilerCancha> obtenerEventos(String fecha) {
-        return eventos.buscarEventosEnFecha(AlquilerCancha.getFecha());
+    public ArrayList<AlquilerCancha> obtenerEventos(Date fecha) {
+        return eventos.buscarEventosEnFecha(fecha);
     }
 
     public ArrayList<AlquilerCancha> obtenerEventosDeHoy() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String fechaHoy = sdf.format(new Date());
-        return obtenerEventos(fechaHoy);
+        return obtenerEventos(new Date(fechaHoy));
     }
 
-    public void eliminarEvento(Evento evento) {
-        ArrayList<Evento> eventosDelDia = eventos.get(evento.getFecha());
-        if (eventosDelDia != null) {
-            eventosDelDia.remove(evento);
-        }
+    public void eliminarEvento(AlquilerCancha evento) {
+        eventos.eliminarevento(evento);
     }
 }

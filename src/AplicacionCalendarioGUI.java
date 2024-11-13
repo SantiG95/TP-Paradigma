@@ -83,10 +83,10 @@ public class AplicacionCalendarioGUI {
         for (int dia = 1; dia <= diasEnMes; dia++) {
             final int diaFinal = dia;
             JButton botonDia = new JButton(String.valueOf(diaFinal));
-            String fechaDia = año + "-" + (mes + 1) + "-" + diaFinal;
+            Date fechaDia = new Date(año + "-" + (mes + 1) + "-" + diaFinal);
 
             botonDia.addActionListener((ActionEvent e) -> {
-                ArrayList<Evento> eventosDelDia = calendario.obtenerEventos(fechaDia);
+                ArrayList<AlquilerCancha> eventosDelDia = calendario.obtenerEventos(fechaDia);
                 if (eventosDelDia.isEmpty()) {
                     agregarEvento(fechaDia);
                 } else {
@@ -116,7 +116,7 @@ public class AplicacionCalendarioGUI {
         }
     }
 
-    public static void mostrarOpcionesDeEventos(String fecha, ArrayList<AlquilerCancha> eventosDelDia) {
+    public static void mostrarOpcionesDeEventos(Date fecha, ArrayList<AlquilerCancha> eventosDelDia) {
         String[] opciones = new String[eventosDelDia.size() + 1];
         for (int i = 0; i < eventosDelDia.size(); i++) {
             opciones[i] = eventosDelDia.get(i).getDescripcion() + " en " + eventosDelDia.get(i).getUbicacion();
