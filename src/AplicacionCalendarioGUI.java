@@ -1,3 +1,7 @@
+import Alquileres.AlquilerCancha;
+import Alquileres.AlquilerCanchaCasual;
+import Personas.Organizador;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
@@ -102,16 +106,17 @@ public class AplicacionCalendarioGUI {
         calendarioPanel.repaint();
     }
 
-    public static void agregarEvento(String fecha) {
+    public static void agregarEvento(Date fecha) {
         String descripcion = JOptionPane.showInputDialog(frame, "Ingrese la descripción del evento:");
         String ubicacion = JOptionPane.showInputDialog(frame, "Ingrese la ubicación del evento:");
         if (descripcion != null && ubicacion != null) {
-            calendario.agregarEvento(new Evento(fecha, descripcion, ubicacion));
+            //TODO revisar esto
+            calendario.agregarEvento(new AlquilerCanchaCasual(fecha, ubicacion, 7, descripcion, new Organizador("Francisco", "Lupica")));
             mostrarCalendario(mesActual, añoActual);
         }
     }
 
-    public static void mostrarOpcionesDeEventos(String fecha, ArrayList<Evento> eventosDelDia) {
+    public static void mostrarOpcionesDeEventos(String fecha, ArrayList<AlquilerCancha> eventosDelDia) {
         String[] opciones = new String[eventosDelDia.size() + 1];
         for (int i = 0; i < eventosDelDia.size(); i++) {
             opciones[i] = eventosDelDia.get(i).getDescripcion() + " en " + eventosDelDia.get(i).getUbicacion();
@@ -124,7 +129,7 @@ public class AplicacionCalendarioGUI {
         if (opcion == eventosDelDia.size()) {
             agregarEvento(fecha);
         } else if (opcion >= 0 && opcion < eventosDelDia.size()) {
-            Evento eventoSeleccionado = eventosDelDia.get(opcion);
+            AlquilerCancha eventoSeleccionado = eventosDelDia.get(opcion);
             String[] opcionesModificacion = {"Modificar", "Eliminar"};
             int eleccion = JOptionPane.showOptionDialog(frame, "¿Qué desea hacer con el evento seleccionado?",
                     "Modificar o Eliminar", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
@@ -139,7 +144,7 @@ public class AplicacionCalendarioGUI {
         }
     }
 
-    public static void modificarEvento(Evento evento) {
+    public static void modificarEvento(AlquilerCancha evento) {
         String nuevaDescripcion = JOptionPane.showInputDialog(frame, "Ingrese la nueva descripción del evento:", evento.getDescripcion());
         String nuevaUbicacion = JOptionPane.showInputDialog(frame, "Ingrese la nueva ubicación del evento:", evento.getUbicacion());
 
@@ -152,9 +157,9 @@ public class AplicacionCalendarioGUI {
 
     public static void iniciarAlertaDeEventos() {
         javax.swing.Timer timer = new javax.swing.Timer(10000, (ActionEvent e) -> {
-            ArrayList<Evento> eventosHoy = calendario.obtenerEventosDeHoy();
+            ArrayList<AlquilerCancha> eventosHoy = calendario.obtenerEventosDeHoy();
             if (!eventosHoy.isEmpty()) {
-                for (Evento evento : eventosHoy) {
+                for (AlquilerCancha evento : eventosHoy) {
                     JOptionPane.showMessageDialog(frame, "¡Alerta! Evento hoy: " + evento.getDescripcion() + " - " + evento.getUbicacion());
                 }
             }
