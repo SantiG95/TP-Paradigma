@@ -83,7 +83,8 @@ public class AplicacionCalendarioGUI {
         for (int dia = 1; dia <= diasEnMes; dia++) {
             final int diaFinal = dia;
             JButton botonDia = new JButton(String.valueOf(diaFinal));
-            Date fechaDia = new Date(año + "-" + (mes + 1) + "-" + diaFinal);
+            Calendar tempCal = new GregorianCalendar(año, mes, diaFinal);
+            Date fechaDia = tempCal.getTime();
 
             botonDia.addActionListener((ActionEvent e) -> {
                 ArrayList<AlquilerCancha> eventosDelDia = calendario.obtenerEventos(fechaDia);
