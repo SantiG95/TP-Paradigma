@@ -1,21 +1,19 @@
-import Alquileres.AlquilerCancha;
-import Alquileres.AlquilerCanchaCasual;
-import Alquileres.AlquilerCanchaFiesta;
-import Personas.Invitado;
-import Personas.Organizador;
+import Clases.AlquilerCancha;
+import Clases.ListaEventos;
+import Clases.Persona;
 
 import java.util.GregorianCalendar;
 
 public class Main {
     public static void main(String[] args) {
 
-        Organizador inquilino1 = new Organizador("Nicolas", "Perez");
+        Persona inquilino1 = new Persona("Nicolas", "Perez");
 
-        AlquilerCancha reunion1 = new AlquilerCanchaCasual(new GregorianCalendar(2024,10,6).getTime(),"LaMadrid",5,"canchita de fulbo 5", inquilino1);
-        AlquilerCancha reunion2 = new AlquilerCanchaCasual(new GregorianCalendar(2022,11,25).getTime(),"Indepe",5, "canchita de fulbo 5", inquilino1);
-        AlquilerCancha reunion3 = new AlquilerCanchaCasual(new GregorianCalendar(2020,11,25).getTime(),"Indepe",11, "canchita de fulbo 11", inquilino1);
+        AlquilerCancha reunion1 = new AlquilerCancha(new GregorianCalendar(2024,10,6).getTime(),"LaMadrid",5,"canchita de fulbo 5", inquilino1);
+        AlquilerCancha reunion2 = new AlquilerCancha(new GregorianCalendar(2022,11,25).getTime(),"Indepe",5, "canchita de fulbo 5", inquilino1);
+        AlquilerCancha reunion3 = new AlquilerCancha(new GregorianCalendar(2020,11,25).getTime(),"Indepe",11, "canchita de fulbo 11", inquilino1);
 
-        inquilino1.asignarAlquiler(reunion1);
+        //inquilino1.asignarAlquiler(reunion1);
 
         //System.out.println(new GregorianCalendar(2024,11,25).getTime());
 
@@ -32,11 +30,11 @@ public class Main {
         //listaeve.mostrarEventosFuturos(new GregorianCalendar(2021,10,2).getTime());
         //System.out.println(" ");
 
-        Invitado invitado = new Invitado("Adan", "Rodriguez");
-        Invitado invitado2 = new Invitado("Lionel","Messi");
-        Invitado invitado3 = new Invitado("Safari","Lopez");
-        Invitado invitado4 = new Invitado("Juan","Shul");
-        Invitado invitado5 = new Invitado("Federico","Lupica");
+        Persona invitado = new Persona("Adan", "Rodriguez");
+        Persona invitado2 = new Persona("Lionel","Messi");
+        Persona invitado3 = new Persona("Safari","Lopez");
+        Persona invitado4 = new Persona("Juan","Shul");
+        Persona invitado5 = new Persona("Federico","Lupica");
 
         invitado5.setNombre("Francisco");
 
@@ -55,7 +53,7 @@ public class Main {
 
         //AlquilerCanchaFiesta reunion4 = new AlquilerCanchaFiesta(new GregorianCalendar(2024,10,6).getTime(),"LaMadrid",5,"canchita de fulbo 5", inquilino1);
         System.out.println(reunion1.getTamañodecancha());
-        inquilino1.cambiarTamañoCancha(11);
+        //inquilino1.cambiarTamañoCancha(11);
         System.out.println(reunion1.getTamañodecancha());
 
     }

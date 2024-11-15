@@ -1,6 +1,4 @@
-import Alquileres.AlquilerCancha;
-import Alquileres.AlquilerCanchaCasual;
-import Personas.Organizador;
+import Clases.*;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -117,7 +115,7 @@ public class AplicacionCalendarioGUI {
         String ubicacion = JOptionPane.showInputDialog(frame, "Ingrese la ubicación del evento:");
         if (descripcion != null && ubicacion != null) {
             //TODO revisar esto
-            calendario.agregarEvento(new AlquilerCanchaCasual(fecha, ubicacion, 7, descripcion, new Organizador("Francisco", "Lupica")));
+            calendario.agregarEvento(new AlquilerCancha(fecha, ubicacion, 7, descripcion, new Persona("Francisco", "Lupica")));
             GuardaDatos.guardarDatos(calendario.getListaEventos());
             mostrarCalendario(mesActual, añoActual);
         }
