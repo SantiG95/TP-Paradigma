@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Calendario {
-    private final ListaEventos eventos;
+    private ListaEventos eventos;
 
     public Calendario() {
         eventos = new ListaEventos();
@@ -27,6 +27,14 @@ public class Calendario {
     }
 
     public void eliminarEvento(AlquilerCancha evento) {
-        eventos.eliminarevento(evento);
+        eventos.eliminarEvento(evento);
+    }
+
+    public ListaEventos getListaEventos(){
+        return eventos;
+    }
+
+    public void setListaEventos(ListaEventos listaEventos){
+        this.eventos = listaEventos;
     }
 }

@@ -20,6 +20,7 @@ public class AplicacionCalendarioGUI {
         frame.setSize(800, 600);
 
         calendario = new Calendario();
+        calendario.setListaEventos(GuardaDatos.cargarDatos());
         calendarioPanel = new JPanel();
         calendarioPanel.setLayout(new BorderLayout());
 
@@ -57,6 +58,10 @@ public class AplicacionCalendarioGUI {
 
         frame.setVisible(true);
         iniciarAlertaDeEventos();
+
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            GuardaDatos.guardarDatos(calendario.getListaEventos());
+        }));
     }
 
     public static void mostrarCalendario(int mes, int año) {
@@ -113,6 +118,7 @@ public class AplicacionCalendarioGUI {
         if (descripcion != null && ubicacion != null) {
             //TODO revisar esto
             calendario.agregarEvento(new AlquilerCanchaCasual(fecha, ubicacion, 7, descripcion, new Organizador("Francisco", "Lupica")));
+            GuardaDatos.guardarDatos(calendario.getListaEventos());
             mostrarCalendario(mesActual, añoActual);
         }
     }
@@ -152,6 +158,7 @@ public class AplicacionCalendarioGUI {
         if (nuevaDescripcion != null && nuevaUbicacion != null) {
             evento.setDescripcion(nuevaDescripcion);
             evento.setUbicacion(nuevaUbicacion);
+            GuardaDatos.guardarDatos(calendario.getListaEventos());
             mostrarCalendario(mesActual, añoActual);
         }
     }

@@ -4,16 +4,16 @@ import Personas.Invitado;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.io.Serializable;
 
-abstract public class AlquilerCancha {
+abstract public class AlquilerCancha implements Serializable {
     protected Date fecha;
     protected String ubicacion;
     protected String descripcion;
     public ArrayList<Invitado> listaAsistentes = new ArrayList<>();
     protected int tamañoCancha;
+    private static final long serialVersionUID = 1L;
     //TODO falta hacer la parte de que recursos maneja. Podria ser la pelota, ponchos de color(nombre temporal)
-    //TODO diferencia de alquileres por el tiempo
-    //TODO canchas de difentes suelos
 
     public Date getFecha() {
         return fecha;
