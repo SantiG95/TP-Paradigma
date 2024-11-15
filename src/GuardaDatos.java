@@ -1,3 +1,5 @@
+import Clases.ListaEventos;
+
 import java.io.*;
 
 public class GuardaDatos {

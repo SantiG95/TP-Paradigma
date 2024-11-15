@@ -1,23 +1,28 @@
-package Alquileres;
-
-import Personas.Invitado;
+package Clases;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.io.Serializable;
 
-abstract public class AlquilerCancha implements Serializable {
-    protected Date fecha;
-    protected String ubicacion;
-    protected String descripcion;
-    public ArrayList<Invitado> listaAsistentes = new ArrayList<>();
-    protected int tamañoCancha;
+public class AlquilerCancha implements Serializable {
+    private Date fecha;
+    private String ubicacion;
+    private String descripcion;
+    public ArrayList<Persona> listaAsistentes = new ArrayList<>();
+    private int tamañoCancha;
     private static final long serialVersionUID = 1L;
+    private Persona organizador;
     //TODO falta hacer la parte de que recursos maneja. Podria ser la pelota, ponchos de color(nombre temporal)
 
-    public Date getFecha() {
-        return fecha;
+    public AlquilerCancha(Date fecha, String ubicacion, int tamañoCancha, String descripcion, Persona organizador){
+        this.fecha = fecha;
+        this.ubicacion = ubicacion;
+        this.descripcion = descripcion;
+        this.tamañoCancha = tamañoCancha;
+        this.organizador = organizador;
     }
+
+    public Date getFecha() {return fecha;}
 
     public String getUbicacion() {
         return ubicacion;
@@ -40,21 +45,21 @@ abstract public class AlquilerCancha implements Serializable {
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
 
     public void agregarAsistente(String nombre, String apellido){
-        listaAsistentes.add(new Invitado(nombre, apellido));
+        listaAsistentes.add(new Persona(nombre, apellido));
     }
 
-    public void eliminarAsistente(Invitado asistente){
+    public void eliminarAsistente(Persona asistente){
         listaAsistentes.remove(asistente);
     }
     //TODO puede que el atributo que se pase para eliminar a alguien pueda ser el index de donde se encuentra el invitado, puede que asi sea mas facil para Fran
 
     public void mostrarAsistentes(){
-        for (Invitado asistentes : listaAsistentes) {
+        for (Persona asistentes : listaAsistentes) {
             System.out.println(asistentes.getNombre() +" "+ asistentes.getApellido());
         }
     }
 
-    public boolean estaPresente (Invitado asistente){
+    public boolean estaPresente (Persona asistente){
         return listaAsistentes.contains(asistente);
     }
 

@@ -1,10 +1,15 @@
-package Personas;
+package Clases;
 import java.io.Serializable;
 
-abstract class Persona implements Serializable {
+public class Persona implements Serializable {
     protected static final long serialVersionUID = 1L;
     protected String nombre;
     protected String apellido;
+
+    public Persona(String nombre, String apellido){
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
 
     public String getApellido() {
         return apellido;
