@@ -12,6 +12,7 @@ public class AlquilerCancha implements Serializable {
     private int tamañoCancha;
     private static final long serialVersionUID = 1L;
     private Persona organizador;
+    private ArrayList<String> listaRecursos = new ArrayList<>();
     //TODO falta hacer la parte de que recursos maneja. Podria ser la pelota, ponchos de color(nombre temporal)
 
     public AlquilerCancha(Date fecha, String ubicacion, int tamañoCancha, String descripcion, Persona organizador){
@@ -57,6 +58,18 @@ public class AlquilerCancha implements Serializable {
         for (Persona asistentes : listaAsistentes) {
             System.out.println(asistentes.getNombre() +" "+ asistentes.getApellido());
         }
+    }
+
+    public ArrayList<String> getListaRecursos(){
+        return this.listaRecursos;
+    }
+
+    public void agregarRecurso(String recursoNuevo){
+        listaRecursos.add(recursoNuevo);
+    }
+
+    public void quitarRecurso(String recursoNuevo){
+        listaRecursos.remove(recursoNuevo);
     }
 
     public boolean estaPresente (Persona asistente){
