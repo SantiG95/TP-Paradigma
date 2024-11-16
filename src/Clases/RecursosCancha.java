@@ -1,9 +1,9 @@
 package Clases;
 
 public class RecursosCancha {
-    boolean Grabacion;
-    boolean Pelota;
-    boolean Pecheras;
+    private boolean Grabacion;
+    private boolean Pelota;
+    private boolean Pecheras;
 
     public RecursosCancha(){
         this.Grabacion = false;
