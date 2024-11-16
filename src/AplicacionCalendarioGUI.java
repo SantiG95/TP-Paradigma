@@ -4,10 +4,11 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
+//import com.toedter.calendar.JDateChooser;
 
 public class AplicacionCalendarioGUI {
     private static JFrame frame;
-    private static Calendario calendario;
+    private static ListaEventos listaEventos;
     private static JPanel calendarioPanel;
     private static int mesActual = Calendar.getInstance().get(Calendar.MONTH);
     private static int añoActual = Calendar.getInstance().get(Calendar.YEAR);
@@ -17,8 +18,8 @@ public class AplicacionCalendarioGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
 
-        calendario = new Calendario();
-        calendario.setListaEventos(GuardaDatos.cargarDatos());
+        listaEventos = new ListaEventos();
+        listaEventos.setListaEventos(GuardaDatos.cargarDatos());
         calendarioPanel = new JPanel();
         calendarioPanel.setLayout(new BorderLayout());
 
@@ -58,7 +59,7 @@ public class AplicacionCalendarioGUI {
         iniciarAlertaDeEventos();
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            GuardaDatos.guardarDatos(calendario.getListaEventos());
+            GuardaDatos.guardarDatos(listaEventos.getListaEventos());
         }));
     }
 
@@ -90,7 +91,7 @@ public class AplicacionCalendarioGUI {
             Date fechaDia = tempCal.getTime();
 
             botonDia.addActionListener((ActionEvent e) -> {
-                ArrayList<AlquilerCancha> eventosDelDia = calendario.obtenerEventos(fechaDia);
+                ArrayList<AlquilerCancha> eventosDelDia = listaEventos.obtenerEventosEnFecha(fechaDia);
                 if (eventosDelDia.isEmpty()) {
                     agregarEvento(fechaDia);
                 } else {
@@ -98,7 +99,7 @@ public class AplicacionCalendarioGUI {
                 }
             });
 
-            if (!calendario.obtenerEventos(fechaDia).isEmpty()) {
+            if (!listaEventos.obtenerEventosEnFecha(fechaDia).isEmpty()) {
                 botonDia.setBackground(Color.RED);
             }
 
@@ -111,13 +112,38 @@ public class AplicacionCalendarioGUI {
     }
 
     public static void agregarEvento(Date fecha) {
-        String descripcion = JOptionPane.showInputDialog(frame, "Ingrese la descripción del evento:");
-        String ubicacion = JOptionPane.showInputDialog(frame, "Ingrese la ubicación del evento:");
-        if (descripcion != null && ubicacion != null) {
-            //TODO revisar esto
-            calendario.agregarEvento(new AlquilerCancha(fecha, ubicacion, 7, descripcion, new Persona("Francisco", "Lupica")));
-            GuardaDatos.guardarDatos(calendario.getListaEventos());
-            mostrarCalendario(mesActual, añoActual);
+        JPanel panel = new JPanel(new GridLayout(6, 6));
+
+        JTextField descripcionField = new JTextField(20);
+        JTextField ubicacionField = new JTextField(20);
+        JTextField organizadorField = new JTextField(20);
+        Integer[] tamañosDisponibles = {5, 7, 11};
+        JComboBox<Integer> tamañoComboBox = new JComboBox<>(tamañosDisponibles);
+
+        panel.add(new JLabel("Organizador:"));
+        panel.add(organizadorField);
+        panel.add(new JLabel("Descripción:"));
+        panel.add(descripcionField);
+        panel.add(new JLabel("Ubicación:"));
+        panel.add(ubicacionField);
+        panel.add(new JLabel("Tamaño:"));
+        panel.add(tamañoComboBox);
+
+
+        int resultado = JOptionPane.showConfirmDialog(frame, panel, "Agregar Evento", JOptionPane.OK_CANCEL_OPTION);
+
+        if (resultado == JOptionPane.OK_OPTION) {
+            String organizador = organizadorField.getText();
+            String descripcion = descripcionField.getText();
+            String ubicacion = ubicacionField.getText();
+            int tamañoCancha = (int) tamañoComboBox.getSelectedItem();
+
+
+            if (descripcion != null && ubicacion != null && organizador != null) {
+                listaEventos.agregarEvento(new AlquilerCancha(fecha, ubicacion, 7, descripcion, new Persona("Francisco Lupica")), fecha);
+                GuardaDatos.guardarDatos(listaEventos.getListaEventos());
+                mostrarCalendario(mesActual, añoActual);
+            }
         }
     }
 
@@ -143,7 +169,7 @@ public class AplicacionCalendarioGUI {
             if (eleccion == 0) {
                 modificarEvento(eventoSeleccionado);
             } else if (eleccion == 1) {
-                calendario.eliminarEvento(eventoSeleccionado);
+                listaEventos.eliminarEvento(eventoSeleccionado);
                 mostrarCalendario(mesActual, añoActual);
             }
         }
@@ -156,14 +182,14 @@ public class AplicacionCalendarioGUI {
         if (nuevaDescripcion != null && nuevaUbicacion != null) {
             evento.setDescripcion(nuevaDescripcion);
             evento.setUbicacion(nuevaUbicacion);
-            GuardaDatos.guardarDatos(calendario.getListaEventos());
+            GuardaDatos.guardarDatos(listaEventos.getListaEventos());
             mostrarCalendario(mesActual, añoActual);
         }
     }
 
     public static void iniciarAlertaDeEventos() {
         javax.swing.Timer timer = new javax.swing.Timer(10000, (ActionEvent e) -> {
-            ArrayList<AlquilerCancha> eventosHoy = calendario.obtenerEventosDeHoy();
+            ArrayList<AlquilerCancha> eventosHoy = listaEventos.obtenerEventosDeHoy();
             if (!eventosHoy.isEmpty()) {
                 for (AlquilerCancha evento : eventosHoy) {
                     JOptionPane.showMessageDialog(frame, "¡Alerta! Evento hoy: " + evento.getDescripcion() + " - " + evento.getUbicacion());

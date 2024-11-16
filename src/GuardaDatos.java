@@ -1,11 +1,16 @@
+import Clases.AlquilerCancha;
 import Clases.ListaEventos;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Map;
+import java.util.HashMap;
 
 public class GuardaDatos {
     private static final String archivoGuardado = "datos.dat";
 
-    public static void guardarDatos(ListaEventos listaEventos){
+    public static void guardarDatos(Map<Date, ArrayList<AlquilerCancha>> listaEventos){
         try{
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(archivoGuardado));
             oos.writeObject(listaEventos);
@@ -15,16 +20,17 @@ public class GuardaDatos {
         }
     }
 
-    public static ListaEventos cargarDatos(){
+    public static Map<Date, ArrayList<AlquilerCancha>> cargarDatos(){
         try{
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(archivoGuardado));
-            ListaEventos datos = (ListaEventos) ois.readObject();
+            //@SuppressWarnings("unchecked")
+            Map<Date, ArrayList<AlquilerCancha>> datos = (Map<Date, ArrayList<AlquilerCancha>>) ois.readObject();
             ois.close();
             return datos;    
         } 
         catch (Exception e){
             System.out.println("Error al cargar los datos");
-            return new ListaEventos();
+            return new HashMap<Date, ArrayList<AlquilerCancha>>();
         }
     }
 }
