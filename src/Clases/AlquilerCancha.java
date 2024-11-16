@@ -12,8 +12,7 @@ public class AlquilerCancha implements Serializable {
     private int tamañoCancha;
     private static final long serialVersionUID = 1L;
     private Persona organizador;
-    private ArrayList<String> listaRecursos = new ArrayList<>();
-    //TODO falta hacer la parte de que recursos maneja. Podria ser la pelota, ponchos de color(nombre temporal)
+    private RecursosCancha recursosCancha;
 
     public AlquilerCancha(Date fecha, String ubicacion, int tamañoCancha, String descripcion, Persona organizador){
         this.fecha = fecha;
@@ -21,6 +20,7 @@ public class AlquilerCancha implements Serializable {
         this.descripcion = descripcion;
         this.tamañoCancha = tamañoCancha;
         this.organizador = organizador;
+        this.recursosCancha = new RecursosCancha();
     }
 
     public Date getFecha() {return fecha;}
@@ -45,35 +45,53 @@ public class AlquilerCancha implements Serializable {
 
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
 
-    public void agregarAsistente(String nombre, String apellido){
-        listaAsistentes.add(new Persona(nombre, apellido));
+    public void agregarAsistente(String nombreApellido){
+        listaAsistentes.add(new Persona(nombreApellido));
     }
 
     public void eliminarAsistente(Persona asistente){
         listaAsistentes.remove(asistente);
     }
-    //TODO puede que el atributo que se pase para eliminar a alguien pueda ser el index de donde se encuentra el invitado, puede que asi sea mas facil para Fran
 
     public void mostrarAsistentes(){
         for (Persona asistentes : listaAsistentes) {
-            System.out.println(asistentes.getNombre() +" "+ asistentes.getApellido());
+            System.out.println(asistentes.getNombreApellido());
         }
     }
 
-    public ArrayList<String> getListaRecursos(){
-        return this.listaRecursos;
+    public void agregarGrabacion(){
+        this.recursosCancha.setGrabacion(true);
     }
 
-    public void agregarRecurso(String recursoNuevo){
-        listaRecursos.add(recursoNuevo);
+    public void quitarGrabacion(){
+        this.recursosCancha.setGrabacion(false);
     }
 
-    public void quitarRecurso(String recursoNuevo){
-        listaRecursos.remove(recursoNuevo);
+    public void agregarPelota(){
+        this.recursosCancha.setPelota(true);
     }
 
-    public boolean estaPresente (Persona asistente){
-        return listaAsistentes.contains(asistente);
+    public void quitarPelota(){
+        this.recursosCancha.setPelota(false);
     }
 
+    public void agregarPechera(){
+        this.recursosCancha.setPecheras(true);
+    }
+
+    public void quitarPechera(){
+        this.recursosCancha.setPecheras(false);
+    }
+
+    public boolean obtenerGrabacion(){
+        return this.recursosCancha.getGrabacion();
+    }
+
+    public boolean obtenerPelota(){
+        return this.recursosCancha.getPelota();
+    }
+
+    public boolean obtenerPecheras(){
+        return this.recursosCancha.getPecheras();
+    }
 }

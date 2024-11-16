@@ -1,9 +1,6 @@
 package Clases;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 import java.io.Serializable;
 
 public class ListaEventos implements Serializable {
@@ -75,11 +72,24 @@ public class ListaEventos implements Serializable {
         mostrar(listaEventosFuturos);
     }
 
-    public ArrayList<AlquilerCancha> buscarEventosEnFecha(Date fecha){
+    public ArrayList<AlquilerCancha> obtenerEventosEnFecha(Date fecha){
         ArrayList<AlquilerCancha> listaEventos = Eventos.get(fecha);
         if(listaEventos != null) return listaEventos;
         Eventos.put(fecha, new ArrayList<AlquilerCancha>());
         return Eventos.get(fecha);
     }
 
+    public Map<Date, ArrayList<AlquilerCancha>> getListaEventos(){
+        return Eventos;
+    }
+
+    public void setListaEventos(Map<Date, ArrayList<AlquilerCancha>> listaEventos){
+        this.Eventos = listaEventos;
+    }
+
+    public ArrayList<AlquilerCancha> obtenerEventosDeHoy() {
+        Calendar cal = Calendar.getInstance();
+        Date fechaHoy = cal.getTime();
+        return obtenerEventosEnFecha(fechaHoy);
+    }
 }

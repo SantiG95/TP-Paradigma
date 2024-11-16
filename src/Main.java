@@ -7,7 +7,9 @@ import java.util.GregorianCalendar;
 public class Main {
     public static void main(String[] args) {
 
-        Persona inquilino1 = new Persona("Nicolas", "Perez");
+        System.out.println(new GregorianCalendar(2024,11,25));
+
+        Persona inquilino1 = new Persona("Nicolas Perez");
 
         AlquilerCancha reunion1 = new AlquilerCancha(new GregorianCalendar(2024,10,6).getTime(),"LaMadrid",5,"canchita de fulbo 5", inquilino1);
         AlquilerCancha reunion2 = new AlquilerCancha(new GregorianCalendar(2022,11,25).getTime(),"Indepe",5, "canchita de fulbo 5", inquilino1);
@@ -30,13 +32,13 @@ public class Main {
         //listaeve.mostrarEventosFuturos(new GregorianCalendar(2021,10,2).getTime());
         //System.out.println(" ");
 
-        Persona invitado = new Persona("Adan", "Rodriguez");
-        Persona invitado2 = new Persona("Lionel","Messi");
-        Persona invitado3 = new Persona("Safari","Lopez");
-        Persona invitado4 = new Persona("Juan","Shul");
-        Persona invitado5 = new Persona("Federico","Lupica");
+        Persona invitado = new Persona("Adan Rodriguez");
+        Persona invitado2 = new Persona("Lionel Messi");
+        Persona invitado3 = new Persona("Safari Lopez");
+        Persona invitado4 = new Persona("Juan Shul");
+        Persona invitado5 = new Persona("Federico Lupica");
 
-        invitado5.setNombre("Francisco");
+        invitado5.setNombreApellido("Francisco");
 
         //invitado.esInvitadoAAlquiler(reunion1);
         //invitado2.esInvitadoAAlquiler(reunion1);
@@ -52,9 +54,9 @@ public class Main {
         //System.out.println(reunion1.estaPresente(invitado));
 
         //AlquilerCanchaFiesta reunion4 = new AlquilerCanchaFiesta(new GregorianCalendar(2024,10,6).getTime(),"LaMadrid",5,"canchita de fulbo 5", inquilino1);
-        System.out.println(reunion1.getTamañodecancha());
+        //System.out.println(reunion1.getTamañodecancha());
         //inquilino1.cambiarTamañoCancha(11);
-        System.out.println(reunion1.getTamañodecancha());
+        //System.out.println(reunion1.getTamañodecancha());
 
     }
 }
