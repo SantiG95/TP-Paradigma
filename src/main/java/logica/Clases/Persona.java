@@ -1,4 +1,4 @@
-package Clases;
+package logica.Clases;
 import java.io.Serializable;
 
 public class Persona implements Serializable {

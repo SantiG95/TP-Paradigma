@@ -1,6 +1,8 @@
-package Clases;
+package logica.Clases;
 
-public class RecursosCancha {
+import java.io.Serializable;
+
+public class RecursosCancha implements Serializable {
     boolean Grabacion;
     boolean Pelota;
     boolean Pecheras;

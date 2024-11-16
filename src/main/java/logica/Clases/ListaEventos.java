@@ -1,4 +1,4 @@
-package Clases;
+package logica.Clases;
 
 import java.util.*;
 import java.io.Serializable;
@@ -46,9 +46,10 @@ public class ListaEventos implements Serializable {
         }
     }
 
-    public void mostrarEventosPasados(Date fecha){
+    public ArrayList<AlquilerCancha> mostrarEventosPasados(Date fecha){
         ArrayList<AlquilerCancha> listaEventosPasados = new ArrayList<>();
         for (Map.Entry<Date, ArrayList<AlquilerCancha>> eventoenlista : Eventos.entrySet()){
+            System.out.println(eventoenlista.getKey());
             if(fecha.after(eventoenlista.getKey())){
                 for(AlquilerCancha alquilerCancha : eventoenlista.getValue()){
                     listaEventosPasados.add(alquilerCancha);
@@ -56,10 +57,12 @@ public class ListaEventos implements Serializable {
 
             }
         }
+        
         mostrar(listaEventosPasados);
+        return listaEventosPasados;
     }
 
-    public void mostrarEventosFuturos(Date fecha){
+    public ArrayList<AlquilerCancha> mostrarEventosFuturos(Date fecha){
         ArrayList<AlquilerCancha> listaEventosFuturos = new ArrayList<>();
         for (Map.Entry<Date, ArrayList<AlquilerCancha>> eventoenlista : Eventos.entrySet()){
             if(fecha.before(eventoenlista.getKey())){
@@ -70,6 +73,7 @@ public class ListaEventos implements Serializable {
             }
         }
         mostrar(listaEventosFuturos);
+        return listaEventosFuturos;
     }
 
     public ArrayList<AlquilerCancha> obtenerEventosEnFecha(Date fecha){
@@ -91,5 +95,29 @@ public class ListaEventos implements Serializable {
         Calendar cal = Calendar.getInstance();
         Date fechaHoy = cal.getTime();
         return obtenerEventosEnFecha(fechaHoy);
+    }
+
+    public String generarID(){
+        int idMasAlto = 0;
+        if(Eventos.isEmpty()) return "0";
+        for(Map.Entry<Date, ArrayList<AlquilerCancha>> eventosDelDia: Eventos.entrySet()){
+            for(AlquilerCancha alquiler: eventosDelDia.getValue()){
+                if(alquiler.getID() > idMasAlto) idMasAlto = alquiler.getID();
+            }
+        }
+        return Integer.toString(idMasAlto + 1);
+    }
+
+    public boolean existeEventoConID(String id){
+        return (obtenerEventoPorID(id) != null);
+    }
+
+    public AlquilerCancha obtenerEventoPorID(String id){
+        for(Map.Entry<Date, ArrayList<AlquilerCancha>> eventosDelDia: Eventos.entrySet()){
+            for(AlquilerCancha alquiler: eventosDelDia.getValue()){
+                if(Integer.toString(alquiler.getID()).equals(id) ) return alquiler;
+            }
+        }
+        return null;
     }
 }

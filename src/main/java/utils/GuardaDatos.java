@@ -1,5 +1,7 @@
-import Clases.AlquilerCancha;
-import Clases.ListaEventos;
+package utils;
+
+import logica.Clases.AlquilerCancha;
+import logica.Clases.ListaEventos;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ public class GuardaDatos {
         try{
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(archivoGuardado));
             oos.writeObject(listaEventos);
+            System.out.println("Los datos se han guardado");
             oos.close();
         } catch (Exception e){
             System.out.println("Error al guardar los datos");
@@ -26,6 +29,7 @@ public class GuardaDatos {
             //@SuppressWarnings("unchecked")
             Map<Date, ArrayList<AlquilerCancha>> datos = (Map<Date, ArrayList<AlquilerCancha>>) ois.readObject();
             ois.close();
+            System.out.println("Los datos se han cargado");
             return datos;    
         } 
         catch (Exception e){
