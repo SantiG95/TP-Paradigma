@@ -120,4 +120,12 @@ public class ListaEventos implements Serializable {
         }
         return null;
     }
+
+    public boolean exitenEventosEnFechaYHora(Date fecha, String horario){
+        ArrayList<AlquilerCancha> listaEventos = obtenerEventosEnFecha(fecha);
+        for(AlquilerCancha alquiler: listaEventos){
+            if(alquiler.getHorario().equals(horario)) return true;
+        }
+        return false;
+    }
 }

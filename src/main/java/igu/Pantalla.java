@@ -240,8 +240,7 @@ public class Pantalla extends javax.swing.JFrame {
         Date fecha = FECHAINDICADA.getDate();
         String tamañoSeleccionado = tamaños.getSelectedItem().toString();
         String Horario = horarios.getSelectedItem().toString();
-        Datos datos = new Datos();
-        if(datos.buscarEvento(fecha,Horario,tamañoSeleccionado)){
+        if(listaEventos.exitenEventosEnFechaYHora(fecha,Horario)){
             javax.swing.JOptionPane.showMessageDialog(this, "La opción de alquiler seleccionada ya se encuentra ocupada.", "Intente nuevamente.", javax.swing.JOptionPane.ERROR_MESSAGE);
         }else{
             switch (tamaños.getSelectedItem().toString()) {

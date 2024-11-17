@@ -6,6 +6,8 @@ package igu;
 
 import java.util.Date;
 import logica.Clases.ListaEventos;
+import utils.*;
+import logica.Clases.*;
 
 /**
  *
@@ -26,6 +28,7 @@ public class Futbol6 extends javax.swing.JFrame {
         this.fecha = fecha;
         this.tamañoSeleccionado = tamañoSeleccionado;
         this.Horario = Horario;
+        this.listaEventos = listaEventos;
     }
 
     /**
@@ -222,7 +225,32 @@ public class Futbol6 extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField9ActionPerformed
 
     private void RESERVARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RESERVARActionPerformed
-        // TODO add your handling code here:
+        Pantalla newframe = new Pantalla();
+        newframe.setVisible(true);
+        newframe.setLocationRelativeTo(null);
+        AlquilerCancha alquilerNuevo = new AlquilerCancha(listaEventos.generarID(), fecha,"", tamañoSeleccionado, "", new Persona(organizador), Horario );
+        alquilerNuevo.agregarAsistente(jTextField1.getText());
+        alquilerNuevo.agregarAsistente(jTextField2.getText());
+        alquilerNuevo.agregarAsistente(jTextField3.getText());
+        alquilerNuevo.agregarAsistente(jTextField4.getText());
+        alquilerNuevo.agregarAsistente(jTextField5.getText());
+        alquilerNuevo.agregarAsistente(jTextField6.getText());
+        alquilerNuevo.agregarAsistente(jTextField7.getText());
+        alquilerNuevo.agregarAsistente(jTextField8.getText());
+        alquilerNuevo.agregarAsistente(jTextField9.getText());
+        alquilerNuevo.agregarAsistente(jTextField10.getText());
+        alquilerNuevo.agregarAsistente(jTextField14.getText());
+        alquilerNuevo.agregarAsistente(jTextField15.getText());
+        
+        if(jCheckBox1.isSelected())alquilerNuevo.agregarPechera();
+        if(jCheckBox2.isSelected())alquilerNuevo.agregarGrabacion();
+        if(jCheckBox3.isSelected())alquilerNuevo.agregarPelota();
+        
+        listaEventos.agregarEvento(alquilerNuevo, fecha);
+        
+        GuardaDatos.guardarDatos(listaEventos.getListaEventos());
+        
+        this.dispose();   
     }//GEN-LAST:event_RESERVARActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

@@ -6,6 +6,8 @@ package igu;
 
 import java.util.Date;
 import logica.Clases.ListaEventos;
+import utils.*;
+import logica.Clases.*;
 
 /**
  *
@@ -74,7 +76,7 @@ public class Futbol7 extends javax.swing.JFrame {
         jButton1.setText("RESERVAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RESERVARActionPerformed(evt);
             }
         });
 
@@ -244,9 +246,36 @@ public class Futbol7 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField9ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void RESERVARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RESERVARActionPerformed
+        Pantalla newframe = new Pantalla();
+        newframe.setVisible(true);
+        newframe.setLocationRelativeTo(null);
+        AlquilerCancha alquilerNuevo = new AlquilerCancha(listaEventos.generarID(), fecha,"", tamañoSeleccionado, "", new Persona(organizador), Horario );
+        alquilerNuevo.agregarAsistente(jTextField1.getText());
+        alquilerNuevo.agregarAsistente(jTextField2.getText());
+        alquilerNuevo.agregarAsistente(jTextField3.getText());
+        alquilerNuevo.agregarAsistente(jTextField4.getText());
+        alquilerNuevo.agregarAsistente(jTextField5.getText());
+        alquilerNuevo.agregarAsistente(jTextField6.getText());
+        alquilerNuevo.agregarAsistente(jTextField7.getText());
+        alquilerNuevo.agregarAsistente(jTextField8.getText());
+        alquilerNuevo.agregarAsistente(jTextField9.getText());
+        alquilerNuevo.agregarAsistente(jTextField10.getText());
+        alquilerNuevo.agregarAsistente(jTextField14.getText());
+        alquilerNuevo.agregarAsistente(jTextField15.getText());
+        alquilerNuevo.agregarAsistente(jTextField16.getText());
+        alquilerNuevo.agregarAsistente(jTextField17.getText());
+        
+        if(jCheckBox1.isSelected())alquilerNuevo.agregarPechera();
+        if(jCheckBox2.isSelected())alquilerNuevo.agregarGrabacion();
+        if(jCheckBox3.isSelected())alquilerNuevo.agregarPelota();
+        
+        listaEventos.agregarEvento(alquilerNuevo, fecha);
+        
+        GuardaDatos.guardarDatos(listaEventos.getListaEventos());
+        
+        this.dispose();
+    }//GEN-LAST:event_RESERVARActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Pantalla newframe = new Pantalla();
@@ -260,6 +289,7 @@ public class Futbol7 extends javax.swing.JFrame {
     public static void main(String args[]) {
 
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TITULO;

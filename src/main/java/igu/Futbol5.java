@@ -263,6 +263,10 @@ public class Futbol5 extends javax.swing.JFrame {
         alquilerNuevo.agregarAsistente(jTextField9.getText());
         alquilerNuevo.agregarAsistente(jTextField10.getText());
         
+        if(jCheckBox1.isSelected())alquilerNuevo.agregarPechera();
+        if(jCheckBox2.isSelected())alquilerNuevo.agregarGrabacion();
+        if(jCheckBox3.isSelected())alquilerNuevo.agregarPelota();
+        
         listaEventos.agregarEvento(alquilerNuevo, fecha);
         
         GuardaDatos.guardarDatos(listaEventos.getListaEventos());
