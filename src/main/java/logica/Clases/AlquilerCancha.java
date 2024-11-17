@@ -76,7 +76,7 @@ public class AlquilerCancha implements Serializable {
     public String mostrarAsistentes(){
         String asistentesString = "";
         for (Persona asistentes : listaAsistentes) {
-            System.out.println(asistentes.getNombreApellido());
+            //System.out.println(asistentes.getNombreApellido());
             asistentesString += asistentes.getNombreApellido();
             asistentesString += " ";
         }
@@ -125,5 +125,13 @@ public class AlquilerCancha implements Serializable {
 
     public boolean obtenerPecheras(){
         return this.recursosCancha.getPecheras();
+    }
+    
+    public String obtenerRecursos(){
+        String respuesta = "";
+        if(obtenerGrabacion()) respuesta += "Grabacion ";
+        if(obtenerPelota()) respuesta += "Pelota ";
+        if(obtenerPecheras()) respuesta += "Pecheras";
+        return respuesta;
     }
 }

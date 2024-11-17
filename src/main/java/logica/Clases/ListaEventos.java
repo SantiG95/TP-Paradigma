@@ -72,7 +72,7 @@ public class ListaEventos implements Serializable {
 
             }
         }
-        mostrar(listaEventosFuturos);
+        //mostrar(listaEventosFuturos);
         return listaEventosFuturos;
     }
 

@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package igu;
-import utils.Datos;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -186,24 +185,6 @@ public class EditarEvento extends javax.swing.JFrame {
         newframe.setLocationRelativeTo(null);
         this.dispose();
         
-        
-        /*try (BufferedReader reader = new BufferedReader(new FileReader("rtas.txt"))) {
-            String linea;
-
-            while ((linea = reader.readLine()) != null) {
-                String[] bloques = linea.split(","); // Divide la línea en partes
-                if (bloques.length > 5 && bloques[5].equals(IdEventoSeleccionado)) {
-                    String organizador = bloques [0];
-                    String invitados = bloques [4];
-                    Datos datos = new Datos();
-                    datos.modificarDatos(organizador, fechaNueva.getDate(), tamañoNuevo.getSelectedItem().toString() , invitados, horarioNuevo.getSelectedItem().toString(), IdEventoSeleccionado);
-
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return; // Salimos si hay un error de lectura
-        }*/
 
         ListaEventos listaEventos = new ListaEventos();
         listaEventos.setListaEventos(GuardaDatos.cargarDatos());

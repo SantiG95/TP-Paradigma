@@ -29,7 +29,8 @@ public class EventosPasados extends javax.swing.JFrame {
         modelo.addColumn("HORARIO");
         modelo.addColumn("TAMAÑO");
         modelo.addColumn("INVITADOS");
-        modelo.addColumn("ID");        
+        modelo.addColumn("ID");      
+        modelo.addColumn("RECURSOS");
         this.tb1Registros.setModel(modelo);
                 try {
             //FileReader archivoRTA = new FileReader("rtas.txt");
@@ -47,7 +48,8 @@ public class EventosPasados extends javax.swing.JFrame {
                         alquilerCancha.getHorario(),
                         alquilerCancha.getTamañodecancha(),
                         alquilerCancha.mostrarAsistentes(),
-                        alquilerCancha.getID()
+                        alquilerCancha.getID(),
+                        alquilerCancha.obtenerRecursos()
                 });
             }
             

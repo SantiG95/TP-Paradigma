@@ -30,6 +30,7 @@ public class EventosFuturos extends javax.swing.JFrame {
         modelo.addColumn("TAMAÑO");
         modelo.addColumn("INVITADOS");
         modelo.addColumn("ID");
+        modelo.addColumn("RECURSOS");
 
         this.tb1EventosFuturos.setModel(modelo);
             try {
@@ -47,7 +48,8 @@ public class EventosFuturos extends javax.swing.JFrame {
                         alquilerCancha.getHorario(),
                         alquilerCancha.getTamañodecancha(),
                         alquilerCancha.mostrarAsistentes(),
-                        alquilerCancha.getID()
+                        alquilerCancha.getID(),
+                        alquilerCancha.obtenerRecursos()
                 });
             }
             /*
@@ -92,6 +94,7 @@ public class EventosFuturos extends javax.swing.JFrame {
         ATRASBTN = new javax.swing.JButton();
         EditarEventoBTN = new javax.swing.JButton();
         IdAEditar = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         TITULOtxt1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tb1EventosFuturos = new javax.swing.JTable();
@@ -121,25 +124,36 @@ public class EventosFuturos extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Borrar un evento");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarEvento(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(79, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(IdAEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(ATRASBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(EditarEventoBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(IdAEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(ATRASBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(EditarEventoBTN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(39, 39, 39))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(305, Short.MAX_VALUE)
+                .addContainerGap(236, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addComponent(EditarEventoBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(IdAEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -220,6 +234,22 @@ public class EventosFuturos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_IdAEditarActionPerformed
 
+    private void borrarEvento(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarEvento
+        String IdEventoSeleccionado = IdAEditar.getText();
+        if(listaEventos.existeEventoConID(IdEventoSeleccionado)){
+            System.out.print(listaEventos.obtenerEventoPorID(IdEventoSeleccionado).getOrganizador());
+            listaEventos.eliminarEvento(listaEventos.obtenerEventoPorID(IdEventoSeleccionado));
+            GuardaDatos.guardarDatos(listaEventos.getListaEventos());
+            this.dispose();
+            listaEventos.setListaEventos(GuardaDatos.cargarDatos());
+            EventosFuturos newframe = new EventosFuturos(listaEventos);
+            newframe.setVisible(true);
+            newframe.setLocationRelativeTo(null);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "El evento con el ID " + IdEventoSeleccionado + " no existe.", "Intente nuevamente", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_borrarEvento
+
     /**
      * @param args the command line arguments
      */
@@ -232,6 +262,7 @@ public class EventosFuturos extends javax.swing.JFrame {
     private javax.swing.JButton EditarEventoBTN;
     private javax.swing.JTextField IdAEditar;
     private javax.swing.JLabel TITULOtxt1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tb1EventosFuturos;
