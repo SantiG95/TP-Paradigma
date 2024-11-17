@@ -130,7 +130,7 @@ public class EventosFuturos extends javax.swing.JFrame {
         );
 
         TITULOtxt1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        TITULOtxt1.setText("STADIO QUILMES : EVENTOS FUTUROS");
+        TITULOtxt1.setText("ALQUILER DE CANCHAS : EVENTOS FUTUROS");
 
         tb1EventosFuturos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

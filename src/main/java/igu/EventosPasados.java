@@ -112,7 +112,7 @@ public class EventosPasados extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tb1Registros);
 
         TITULOtxt1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        TITULOtxt1.setText("STADIO QUILMES : EVENTOS PASADOS");
+        TITULOtxt1.setText("ALQUILER DE CANCHAS : EVENTOS PASADOS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
