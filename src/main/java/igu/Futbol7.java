@@ -73,7 +73,7 @@ public class Futbol7 extends javax.swing.JFrame {
         jButton1.setText("RESERVAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RESERVARActionPerformed(evt);
+                reservarActionPerformed(evt);
             }
         });
 
@@ -82,7 +82,7 @@ public class Futbol7 extends javax.swing.JFrame {
         jButton2.setText("Volver Atras");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                atrasBtnActionPerformed(evt);
             }
         });
 
@@ -241,7 +241,7 @@ public class Futbol7 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField9ActionPerformed
 
-    private void RESERVARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RESERVARActionPerformed
+    private void reservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservarActionPerformed
         Pantalla newframe = new Pantalla();
         newframe.setVisible(true);
         newframe.setLocationRelativeTo(null);
@@ -270,13 +270,13 @@ public class Futbol7 extends javax.swing.JFrame {
         GuardaDatos.guardarDatos(listaEventos.getListaEventos());
         
         this.dispose();
-    }//GEN-LAST:event_RESERVARActionPerformed
+    }//GEN-LAST:event_reservarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void atrasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasBtnActionPerformed
         Pantalla newframe = new Pantalla();
         newframe.setVisible(true);
         newframe.setLocationRelativeTo(null);
-        this.dispose();    }//GEN-LAST:event_jButton2ActionPerformed
+        this.dispose();    }//GEN-LAST:event_atrasBtnActionPerformed
 
     /**
      * @param args the command line arguments

@@ -45,9 +45,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                  <Component id="EVENTOSPASADOS" min="-2" max="-2" attributes="0"/>
+                  <Component id="eventosPasados" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="EVENTOSFUTUROS" min="-2" max="-2" attributes="0"/>
+                  <Component id="eventosFuturos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -60,8 +60,8 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="EVENTOSFUTUROS" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="EVENTOSPASADOS" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="eventosFuturos" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="eventosPasados" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
               </Group>
@@ -69,12 +69,12 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="EVENTOSPASADOS">
+        <Component class="javax.swing.JButton" name="eventosPasados">
           <Properties>
             <Property name="text" type="java.lang.String" value="EventosPasados"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EVENTOSPASADOSActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eventosPasadosActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel1">
@@ -91,14 +91,14 @@
                       <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="ORGANIZADOR" max="32767" attributes="0"/>
-                              <Component id="TITULO" min="-2" max="-2" attributes="0"/>
+                              <Component id="organizador" max="32767" attributes="0"/>
+                              <Component id="titulo" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <Component id="FechaLabel1" min="-2" max="-2" attributes="0"/>
-                              <Component id="FechaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="fechaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="tamaños" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="FECHAINDICADA" alignment="0" min="-2" pref="319" max="-2" attributes="0"/>
+                          <Component id="fechaIndicada" alignment="0" min="-2" pref="319" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -109,7 +109,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
-                      <Component id="ContinuarBotton" min="-2" pref="142" max="-2" attributes="0"/>
+                      <Component id="continuarBotton" min="-2" pref="142" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -118,19 +118,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="TITULO" min="-2" max="-2" attributes="0"/>
+                      <Component id="titulo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                       <Component id="FechaLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="ORGANIZADOR" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="organizador" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="FechaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fechaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="FechaLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="FECHAINDICADA" min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="fechaIndicada" min="-2" pref="44" max="-2" attributes="0"/>
                           <Component id="horarios" min="-2" pref="44" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -138,14 +138,14 @@
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="tamaños" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="ContinuarBotton" min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="continuarBotton" min="-2" pref="41" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="TITULO">
+            <Component class="javax.swing.JLabel" name="titulo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="36" style="0"/>
@@ -166,7 +166,7 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="FechaLabel">
+            <Component class="javax.swing.JLabel" name="fechaLabel">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="18" style="0"/>
@@ -177,7 +177,7 @@
                 <Property name="text" type="java.lang.String" value="Seleccione Fecha"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="ORGANIZADOR">
+            <Component class="javax.swing.JTextField" name="organizador">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="99" type="rgb"/>
@@ -185,12 +185,12 @@
                 <Property name="text" type="java.lang.String" value="NombreyApellido"/>
               </Properties>
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ORGANIZADORFocusGained"/>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ORGANIZADORFocusLost"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ORGANIZADORActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="organizadorFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="organizadorFocusLost"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="organizadorActionPerformed"/>
               </Events>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="FECHAINDICADA">
+            <Component class="com.toedter.calendar.JDateChooser" name="fechaIndicada">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Pantalla_FECHAINDICADA"/>
               </AuxValues>
@@ -206,12 +206,12 @@
                 <Property name="text" type="java.lang.String" value="Seleccione Tama&#xf1;o"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="ContinuarBotton">
+            <Component class="javax.swing.JButton" name="continuarBotton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Continuar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ContinuarBottonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="continuarBottonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="FechaLabel1">
@@ -251,12 +251,12 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="EVENTOSFUTUROS">
+        <Component class="javax.swing.JButton" name="eventosFuturos">
           <Properties>
             <Property name="text" type="java.lang.String" value="EventosFuturos"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EVENTOSFUTUROSActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eventosFuturosActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

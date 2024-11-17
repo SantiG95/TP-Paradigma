@@ -3,37 +3,37 @@ package logica.Clases;
 import java.io.Serializable;
 
 public class RecursosCancha implements Serializable {
-    boolean Grabacion;
-    boolean Pelota;
-    boolean Pecheras;
+    boolean grabacion;
+    boolean pelota;
+    boolean pecheras;
 
     public RecursosCancha(){
-        this.Grabacion = false;
-        this.Pelota = false;
-        this.Pecheras = false;
+        this.grabacion = false;
+        this.pelota = false;
+        this.pecheras = false;
     }
 
     public boolean getGrabacion() {
-        return Grabacion;
+        return grabacion;
     }
 
     public void setGrabacion(boolean grabacion) {
-        Grabacion = grabacion;
+        this.grabacion = grabacion;
     }
 
     public boolean getPelota() {
-        return Pelota;
+        return pelota;
     }
 
     public void setPelota(boolean pelota) {
-        Pelota = pelota;
+        this.pelota = pelota;
     }
 
     public boolean getPecheras() {
-        return Pecheras;
+        return pecheras;
     }
 
     public void setPecheras(boolean pecheras) {
-        Pecheras = pecheras;
+        this.pecheras = pecheras;
     }
 }

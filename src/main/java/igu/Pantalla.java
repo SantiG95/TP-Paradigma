@@ -37,35 +37,35 @@ public class Pantalla extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        EVENTOSPASADOS = new javax.swing.JButton();
+        eventosPasados = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        TITULO = new javax.swing.JLabel();
+        titulo = new javax.swing.JLabel();
         tamaños = new javax.swing.JComboBox<>();
-        FechaLabel = new javax.swing.JLabel();
-        ORGANIZADOR = new javax.swing.JTextField();
-        FECHAINDICADA = new com.toedter.calendar.JDateChooser();
+        fechaLabel = new javax.swing.JLabel();
+        organizador = new javax.swing.JTextField();
+        fechaIndicada = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
-        ContinuarBotton = new javax.swing.JButton();
+        continuarBotton = new javax.swing.JButton();
         FechaLabel1 = new javax.swing.JLabel();
         FechaLabel2 = new javax.swing.JLabel();
         horarios = new javax.swing.JComboBox<>();
-        EVENTOSFUTUROS = new javax.swing.JButton();
+        eventosFuturos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
-        EVENTOSPASADOS.setText("EventosPasados");
-        EVENTOSPASADOS.addActionListener(new java.awt.event.ActionListener() {
+        eventosPasados.setText("EventosPasados");
+        eventosPasados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EVENTOSPASADOSActionPerformed(evt);
+                eventosPasadosActionPerformed(evt);
             }
         });
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        TITULO.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        TITULO.setText("ALQUILER DE CANCHAS");
+        titulo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        titulo.setText("ALQUILER DE CANCHAS");
 
         tamaños.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " Futbol 5 - $22000 ", " Futbol 6 - $26000 ", " Futbol 7 - $43000 ", " Futbol 8 - $48000 "  }));
         tamaños.addActionListener(new java.awt.event.ActionListener() {
@@ -74,23 +74,23 @@ public class Pantalla extends javax.swing.JFrame {
             }
         });
 
-        FechaLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        FechaLabel.setForeground(new java.awt.Color(51, 51, 51));
-        FechaLabel.setText("Seleccione Fecha");
+        fechaLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        fechaLabel.setForeground(new java.awt.Color(51, 51, 51));
+        fechaLabel.setText("Seleccione Fecha");
 
-        ORGANIZADOR.setForeground(new java.awt.Color(153, 153, 153));
-        ORGANIZADOR.setText("NombreyApellido");
-        ORGANIZADOR.addFocusListener(new java.awt.event.FocusAdapter() {
+        organizador.setForeground(new java.awt.Color(153, 153, 153));
+        organizador.setText("NombreyApellido");
+        organizador.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                ORGANIZADORFocusGained(evt);
+                organizadorFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                ORGANIZADORFocusLost(evt);
+                organizadorFocusLost(evt);
             }
         });
-        ORGANIZADOR.addActionListener(new java.awt.event.ActionListener() {
+        organizador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ORGANIZADORActionPerformed(evt);
+                organizadorActionPerformed(evt);
             }
         });
 
@@ -98,10 +98,10 @@ public class Pantalla extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Seleccione Tamaño");
 
-        ContinuarBotton.setText("Continuar");
-        ContinuarBotton.addActionListener(new java.awt.event.ActionListener() {
+        continuarBotton.setText("Continuar");
+        continuarBotton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContinuarBottonActionPerformed(evt);
+                continuarBottonActionPerformed(evt);
             }
         });
 
@@ -128,13 +128,13 @@ public class Pantalla extends javax.swing.JFrame {
                 .addGap(77, 77, 77)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(ORGANIZADOR)
-                        .addComponent(TITULO)
+                        .addComponent(organizador)
+                        .addComponent(titulo)
                         .addComponent(jLabel5)
                         .addComponent(FechaLabel1)
-                        .addComponent(FechaLabel)
+                        .addComponent(fechaLabel)
                         .addComponent(tamaños, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(FECHAINDICADA, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fechaIndicada, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(FechaLabel2)
@@ -142,39 +142,39 @@ public class Pantalla extends javax.swing.JFrame {
                 .addGap(64, 64, 64))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(163, 163, 163)
-                .addComponent(ContinuarBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(continuarBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addComponent(TITULO)
+                .addComponent(titulo)
                 .addGap(56, 56, 56)
                 .addComponent(FechaLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(ORGANIZADOR, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(organizador, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FechaLabel)
+                    .addComponent(fechaLabel)
                     .addComponent(FechaLabel2))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(FECHAINDICADA, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fechaIndicada, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(horarios, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addGap(27, 27, 27)
                 .addComponent(tamaños, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ContinuarBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(continuarBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
 
-        EVENTOSFUTUROS.setText("EventosFuturos");
-        EVENTOSFUTUROS.addActionListener(new java.awt.event.ActionListener() {
+        eventosFuturos.setText("EventosFuturos");
+        eventosFuturos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EVENTOSFUTUROSActionPerformed(evt);
+                eventosFuturosActionPerformed(evt);
             }
         });
 
@@ -184,9 +184,9 @@ public class Pantalla extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addComponent(EVENTOSPASADOS)
+                .addComponent(eventosPasados)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(EVENTOSFUTUROS)
+                .addComponent(eventosFuturos)
                 .addGap(75, 75, 75)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -197,8 +197,8 @@ public class Pantalla extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EVENTOSFUTUROS)
-                    .addComponent(EVENTOSPASADOS))
+                    .addComponent(eventosFuturos)
+                    .addComponent(eventosPasados))
                 .addGap(124, 124, 124))
         );
 
@@ -216,21 +216,21 @@ public class Pantalla extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void EVENTOSFUTUROSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EVENTOSFUTUROSActionPerformed
+    private void eventosFuturosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventosFuturosActionPerformed
         listaEventos.setListaEventos(GuardaDatos.cargarDatos());
         EventosFuturos newframe = new EventosFuturos(listaEventos);
         newframe.setVisible(true);
         newframe.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_EVENTOSFUTUROSActionPerformed
+    }//GEN-LAST:event_eventosFuturosActionPerformed
 
     private void horariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horariosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_horariosActionPerformed
 
-    private void ContinuarBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinuarBottonActionPerformed
-        String organizador = ORGANIZADOR.getText();
-        Date fecha = FECHAINDICADA.getDate();
+    private void continuarBottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarBottonActionPerformed
+        String organizador = this.organizador.getText();
+        Date fecha = fechaIndicada.getDate();
         String tamañoSeleccionado = tamaños.getSelectedItem().toString();
         String Horario = horarios.getSelectedItem().toString();
         if(listaEventos.exitenEventosEnFechaYHora(fecha,Horario)){
@@ -265,47 +265,47 @@ public class Pantalla extends javax.swing.JFrame {
 
         }
 
-    }//GEN-LAST:event_ContinuarBottonActionPerformed
+    }//GEN-LAST:event_continuarBottonActionPerformed
 
-    private void ORGANIZADORActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ORGANIZADORActionPerformed
+    private void organizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizadorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ORGANIZADORActionPerformed
+    }//GEN-LAST:event_organizadorActionPerformed
 
-    private void ORGANIZADORFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ORGANIZADORFocusLost
+    private void organizadorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_organizadorFocusLost
 
-    }//GEN-LAST:event_ORGANIZADORFocusLost
+    }//GEN-LAST:event_organizadorFocusLost
 
-    private void ORGANIZADORFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ORGANIZADORFocusGained
+    private void organizadorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_organizadorFocusGained
 
-    }//GEN-LAST:event_ORGANIZADORFocusGained
+    }//GEN-LAST:event_organizadorFocusGained
 
     private void tamañosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tamañosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tamañosActionPerformed
 
-    private void EVENTOSPASADOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EVENTOSPASADOSActionPerformed
+    private void eventosPasadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventosPasadosActionPerformed
         listaEventos.setListaEventos(GuardaDatos.cargarDatos());
         EventosPasados newframe = new EventosPasados(listaEventos);
         newframe.setVisible(true);
         newframe.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_EVENTOSPASADOSActionPerformed
+    }//GEN-LAST:event_eventosPasadosActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ContinuarBotton;
-    private javax.swing.JButton EVENTOSFUTUROS;
-    private javax.swing.JButton EVENTOSPASADOS;
-    private com.toedter.calendar.JDateChooser FECHAINDICADA;
-    private javax.swing.JLabel FechaLabel;
     private javax.swing.JLabel FechaLabel1;
     private javax.swing.JLabel FechaLabel2;
-    private javax.swing.JTextField ORGANIZADOR;
-    private javax.swing.JLabel TITULO;
+    private javax.swing.JButton continuarBotton;
+    private javax.swing.JButton eventosFuturos;
+    private javax.swing.JButton eventosPasados;
+    private com.toedter.calendar.JDateChooser fechaIndicada;
+    private javax.swing.JLabel fechaLabel;
     private javax.swing.JComboBox<String> horarios;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField organizador;
     private javax.swing.JComboBox<String> tamaños;
+    private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }

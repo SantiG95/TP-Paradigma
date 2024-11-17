@@ -14,17 +14,17 @@ public class Futbol8 extends javax.swing.JFrame {
     String organizador;
     Date fecha;
     String tamañoSeleccionado;
-    String Horario;
+    String horario;
     ListaEventos listaEventos;
     /**
      * Creates new form Futbol8
      */
-    public Futbol8(String organizador,Date fecha, String tamañoSeleccionado, String Horario, ListaEventos listaEventos) {
+    public Futbol8(String organizador,Date fecha, String tamañoSeleccionado, String horario, ListaEventos listaEventos) {
         initComponents();
         this.organizador = organizador;
         this.fecha = fecha;
         this.tamañoSeleccionado = tamañoSeleccionado;
-        this.Horario = Horario;
+        this.horario = horario;
         this.listaEventos = listaEventos;
     }
 
@@ -76,7 +76,7 @@ public class Futbol8 extends javax.swing.JFrame {
         jButton1.setText("RESERVAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RESERVARActionPerformed(evt);
+                reservarActionPerformed(evt);
             }
         });
 
@@ -85,7 +85,7 @@ public class Futbol8 extends javax.swing.JFrame {
         jButton2.setText("Volver Atras");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                atrasBtnActionPerformed(evt);
             }
         });
 
@@ -258,11 +258,11 @@ public class Futbol8 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField9ActionPerformed
 
-    private void RESERVARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RESERVARActionPerformed
+    private void reservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservarActionPerformed
         Pantalla newframe = new Pantalla();
         newframe.setVisible(true);
         newframe.setLocationRelativeTo(null);
-        AlquilerCancha alquilerNuevo = new AlquilerCancha(listaEventos.generarID(), fecha,"", tamañoSeleccionado, "", new Persona(organizador), Horario );
+        AlquilerCancha alquilerNuevo = new AlquilerCancha(listaEventos.generarID(), fecha,"", tamañoSeleccionado, "", new Persona(organizador), horario );
         alquilerNuevo.agregarAsistente(jTextField1.getText());
         alquilerNuevo.agregarAsistente(jTextField2.getText());
         alquilerNuevo.agregarAsistente(jTextField3.getText());
@@ -289,13 +289,13 @@ public class Futbol8 extends javax.swing.JFrame {
         GuardaDatos.guardarDatos(listaEventos.getListaEventos());
         
         this.dispose();
-    }//GEN-LAST:event_RESERVARActionPerformed
+    }//GEN-LAST:event_reservarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void atrasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasBtnActionPerformed
         Pantalla newframe = new Pantalla();
         newframe.setVisible(true);
         newframe.setLocationRelativeTo(null);
-        this.dispose();    }//GEN-LAST:event_jButton2ActionPerformed
+        this.dispose();    }//GEN-LAST:event_atrasBtnActionPerformed
 
     /**
      * @param args the command line arguments

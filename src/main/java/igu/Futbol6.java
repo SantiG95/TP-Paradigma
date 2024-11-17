@@ -81,7 +81,7 @@ public class Futbol6 extends javax.swing.JFrame {
         jButton2.setText("Volver Atras");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                atrasBtnActionPerformed(evt);
             }
         });
 
@@ -260,12 +260,12 @@ public class Futbol6 extends javax.swing.JFrame {
         this.dispose();   
     }//GEN-LAST:event_RESERVARActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void atrasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasBtnActionPerformed
         Pantalla newframe = new Pantalla();
         newframe.setVisible(true);
         newframe.setLocationRelativeTo(null);
         this.dispose();      
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_atrasBtnActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:

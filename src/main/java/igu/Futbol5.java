@@ -56,6 +56,7 @@ public class Futbol5 extends javax.swing.JFrame {
         jCheckBox3 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         TITULO.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         TITULO.setText("ALQUILER DE CANCHAS");
@@ -90,14 +91,14 @@ public class Futbol5 extends javax.swing.JFrame {
         ATRASbtn.setText("Volver Atras");
         ATRASbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ATRASbtnActionPerformed(evt);
+                atrasBtnActionPerformed(evt);
             }
         });
 
         RESERVAR.setText("RESERVAR");
         RESERVAR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RESERVARActionPerformed(evt);
+                reservarActionPerformed(evt);
             }
         });
 
@@ -236,14 +237,14 @@ public class Futbol5 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField9ActionPerformed
 
-    private void ATRASbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ATRASbtnActionPerformed
+    private void atrasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasBtnActionPerformed
         Pantalla newframe = new Pantalla();
         newframe.setVisible(true);
         newframe.setLocationRelativeTo(null);
         this.dispose();    
-    }//GEN-LAST:event_ATRASbtnActionPerformed
+    }//GEN-LAST:event_atrasBtnActionPerformed
 
-    private void RESERVARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RESERVARActionPerformed
+    private void reservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservarActionPerformed
         // almacenar datos
         Pantalla newframe = new Pantalla();
         newframe.setVisible(true);
@@ -269,7 +270,7 @@ public class Futbol5 extends javax.swing.JFrame {
         GuardaDatos.guardarDatos(listaEventos.getListaEventos());
         
         this.dispose();    
-    }//GEN-LAST:event_RESERVARActionPerformed
+    }//GEN-LAST:event_reservarActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:

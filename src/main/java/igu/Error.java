@@ -5,6 +5,7 @@
 package igu;
 
 
+
 public class Error extends javax.swing.JPanel {
 
     /**

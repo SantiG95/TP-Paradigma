@@ -11,7 +11,7 @@ public class AlquilerCancha implements Serializable {
     private String descripcion;
     public ArrayList<Persona> listaAsistentes = new ArrayList<>();
     private String tamañoCancha;
-    private String Horario;
+    private String horario;
     private static final long serialVersionUID = 1L;
     private Persona organizador;
     private RecursosCancha recursosCancha;
@@ -24,7 +24,7 @@ public class AlquilerCancha implements Serializable {
         this.tamañoCancha = tamañoCancha;
         this.organizador = organizador;
         this.recursosCancha = new RecursosCancha();
-        this.Horario = Horario;
+        this.horario = Horario;
     }
 
     public int getID() {
@@ -46,11 +46,11 @@ public class AlquilerCancha implements Serializable {
     }
     
     public String getHorario() {
-        return Horario;
+        return horario;
     }
     
     public void setHorario(String Horario){
-        this.Horario = Horario;
+        this.horario = Horario;
     }
     
     public String getTamañodecancha() {return tamañoCancha; }

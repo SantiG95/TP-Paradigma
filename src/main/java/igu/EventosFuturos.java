@@ -80,7 +80,7 @@ public class EventosFuturos extends javax.swing.JFrame {
         EditarEventoBTN.setText("Editar un evento próximo");
         EditarEventoBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditarEventoBTNActionPerformed(evt);
+                editarEventoBTNActionPerformed(evt);
             }
         });
 
@@ -182,7 +182,7 @@ public class EventosFuturos extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_ATRASBTNActionPerformed
 
-    private void EditarEventoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarEventoBTNActionPerformed
+    private void editarEventoBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarEventoBTNActionPerformed
         
         String IdEventoSeleccionado = IdAEditar.getText();
         if(listaEventos.existeEventoConID(IdEventoSeleccionado)){
@@ -195,7 +195,7 @@ public class EventosFuturos extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_EditarEventoBTNActionPerformed
+    }//GEN-LAST:event_editarEventoBTNActionPerformed
 
     private void IdAEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdAEditarActionPerformed
         // TODO add your handling code here:

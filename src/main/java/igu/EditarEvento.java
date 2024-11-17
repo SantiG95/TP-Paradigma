@@ -14,12 +14,12 @@ import utils.GuardaDatos;
 
 
 public class EditarEvento extends javax.swing.JFrame {
-    String IdEventoSeleccionado;
+    String idEventoSeleccionado;
     
     
     public EditarEvento(String IdEventoSeleccionado) {
         initComponents();
-        this.IdEventoSeleccionado = IdEventoSeleccionado;
+        this.idEventoSeleccionado = IdEventoSeleccionado;
     }
 
     /**
@@ -41,7 +41,6 @@ public class EditarEvento extends javax.swing.JFrame {
         fechaNueva = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
         tamañoNuevo = new javax.swing.JComboBox<>();
-        ORIGINALDATOStxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,8 +87,6 @@ public class EditarEvento extends javax.swing.JFrame {
             }
         });
 
-        ORIGINALDATOStxt.setText("jLabel2");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -123,10 +120,6 @@ public class EditarEvento extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(424, 424, 424))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(533, 533, 533)
-                .addComponent(ORIGINALDATOStxt)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(88, 88, 88)
@@ -138,9 +131,7 @@ public class EditarEvento extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(jLabel1)
-                .addGap(74, 74, 74)
-                .addComponent(ORIGINALDATOStxt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(FechaLabel2)
                     .addComponent(jLabel5)
@@ -186,7 +177,7 @@ public class EditarEvento extends javax.swing.JFrame {
         ListaEventos listaEventos = new ListaEventos();
         listaEventos.setListaEventos(GuardaDatos.cargarDatos());
 
-        AlquilerCancha alquilerAModificar = listaEventos.obtenerEventoPorID(IdEventoSeleccionado);
+        AlquilerCancha alquilerAModificar = listaEventos.obtenerEventoPorID(idEventoSeleccionado);
         alquilerAModificar.setTamañodecancha(tamañoNuevo.getSelectedItem().toString());
         alquilerAModificar.setHorario(horarioNuevo.getSelectedItem().toString());
         alquilerAModificar.setFecha(fechaNueva.getDate());
@@ -225,7 +216,6 @@ public class EditarEvento extends javax.swing.JFrame {
     private javax.swing.JButton CONFIRMARBTN;
     private javax.swing.JLabel FechaLabel;
     private javax.swing.JLabel FechaLabel2;
-    private javax.swing.JLabel ORIGINALDATOStxt;
     private com.toedter.calendar.JDateChooser fechaNueva;
     private javax.swing.JComboBox<String> horarioNuevo;
     private javax.swing.JLabel jLabel1;
