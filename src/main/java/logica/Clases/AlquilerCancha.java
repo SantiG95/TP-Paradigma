@@ -76,7 +76,6 @@ public class AlquilerCancha implements Serializable {
     public String mostrarAsistentes(){
         String asistentesString = "";
         for (Persona asistentes : listaAsistentes) {
-            //System.out.println(asistentes.getNombreApellido());
             asistentesString += asistentes.getNombreApellido();
             asistentesString += " ";
         }

@@ -12,10 +12,7 @@ import java.util.*;
 import logica.Clases.*;
 import utils.GuardaDatos;
 
-/**
- *
- * @author ehoka
- */
+
 public class EditarEvento extends javax.swing.JFrame {
     String IdEventoSeleccionado;
     

@@ -12,10 +12,7 @@ import javax.swing.table.DefaultTableModel;
 import utils.GuardaDatos;
 import logica.Clases.*;
 
-/**
- *
- * @author ehoka
- */
+
 public class EventosPasados extends javax.swing.JFrame {
     DefaultTableModel modelo;
     ListaEventos listaEventos;
@@ -33,10 +30,6 @@ public class EventosPasados extends javax.swing.JFrame {
         modelo.addColumn("RECURSOS");
         this.tb1Registros.setModel(modelo);
                 try {
-            //FileReader archivoRTA = new FileReader("rtas.txt");
-            //BufferedReader lectorRTA = new BufferedReader(archivoRTA);
-            //String cadena;
-            
             
             ArrayList<AlquilerCancha> listaEventosPasados = listaEventos.mostrarEventosPasados(new Date());
             System.out.print(listaEventosPasados);
@@ -53,40 +46,6 @@ public class EventosPasados extends javax.swing.JFrame {
                 });
             }
             
-            
-            /*
-            // Leer el archivo línea por línea
-            while ((cadena = lectorRTA.readLine()) != null) {
-                String[] bloques = cadena.split(",");
-
-                Date fecha = new Date();
-                System.out.println("Fecha actual: " + fecha);  
-                
-                //COMPROBACION DE QUE LA FECHA INGRESADA A LA TABLA ES ANTERIOR A LA ACTUAL
-                try {
-                    Date hoy = new Date(); // fecha de hoy 
-         
-                    
-                    String fechaString = bloques[1].trim() ; //fecha que se lee del txt
-                    
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                    Date fechadoc = sdf.parse(fechaString);
-
-                    if(fechadoc.compareTo(hoy)==-1){
-                        modelo.addRow(new Object[]{
-            bloques[0].trim(), 
-            bloques[1].trim(), 
-            bloques[2].trim(),
-            bloques[3].trim(),
-            bloques[4].trim(),
-            bloques[5].trim()});
-                    }
-                    
-                } catch (Exception e) {System.out.println("Error al convertir la fecha: " + e.getMessage());}
-                //FIN DE LA COMPROBACION
-                
-            }//FIN CICLO WHILE
-            */
         } catch (Exception ex2) {System.out.println("error: " + ex2.getMessage());}
     }
 

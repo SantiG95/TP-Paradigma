@@ -4,10 +4,7 @@
  */
 package igu;
 
-/**
- *
- * @author ehoka
- */
+
 public class Error extends javax.swing.JPanel {
 
     /**

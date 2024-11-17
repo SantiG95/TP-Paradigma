@@ -8,7 +8,6 @@ public class ListaEventos implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public ListaEventos(){
-        //Eventos = new ArrayList<>();
         Eventos = new HashMap<>();
     }
 
@@ -33,7 +32,6 @@ public class ListaEventos implements Serializable {
 
     public void mostrarEventos(){
         for (Map.Entry<Date, ArrayList<AlquilerCancha>> evento : Eventos.entrySet()) {
-            System.out.println(evento.getKey());
             for(AlquilerCancha alquilerCancha : evento.getValue()){
                 System.out.println(alquilerCancha.getDescripcion());
             }
@@ -49,7 +47,6 @@ public class ListaEventos implements Serializable {
     public ArrayList<AlquilerCancha> mostrarEventosPasados(Date fecha){
         ArrayList<AlquilerCancha> listaEventosPasados = new ArrayList<>();
         for (Map.Entry<Date, ArrayList<AlquilerCancha>> eventoenlista : Eventos.entrySet()){
-            System.out.println(eventoenlista.getKey());
             if(fecha.after(eventoenlista.getKey())){
                 for(AlquilerCancha alquilerCancha : eventoenlista.getValue()){
                     listaEventosPasados.add(alquilerCancha);
@@ -72,7 +69,6 @@ public class ListaEventos implements Serializable {
 
             }
         }
-        //mostrar(listaEventosFuturos);
         return listaEventosFuturos;
     }
 
